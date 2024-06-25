@@ -6,10 +6,14 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
     devServer: {
-        static: './dist',
+        // static: "./dist",
+        static: {
+            directory: path.resolve(__dirname, './src/assets'),
+            publicPath: '/assets'
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -17,5 +21,21 @@ module.exports = {
             inject: "head",
             scriptLoading: "defer"
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: "asset/resource",
+            },
+            {
+                test: /\.svg$/i,
+                use: "raw-loader"
+            }
+        ],
+    },
 }
