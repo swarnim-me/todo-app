@@ -1,3 +1,5 @@
+import '../css/nav.css';
+
 const menuCloseBtn = document.querySelector(".menu-close-btn");
 const menuOpenBtn = document.querySelector(".menu-open-btn");
 const nav = document.querySelector("nav");

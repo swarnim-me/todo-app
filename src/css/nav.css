@@ -2,9 +2,7 @@ nav {
     background: var(--nav-clr);
     width: min(100%, 300px);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-top: 80px;
 }
 
 .app-title {
@@ -65,5 +63,4 @@ nav {
         position: absolute;
         z-index: 5;
     }
-
 }

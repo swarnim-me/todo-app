@@ -58,3 +58,10 @@ nav,
 .dashboard {
     height: 100vh;
 }
+
+.close-dialog-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 25px;
+}

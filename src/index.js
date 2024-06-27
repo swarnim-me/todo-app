@@ -1,7 +1,9 @@
 import './css/style.css';
-import './css/nav.css';
-import './css/dashboard.css';
 
 import setupNavEvents from './components/navbar';
+import setupDashboardEvents from './components/dashboard';
+import setupCommonEvents from './components/common';
 
 setupNavEvents();
+setupDashboardEvents();
+setupCommonEvents();
