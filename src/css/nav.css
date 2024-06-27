@@ -1,8 +1,10 @@
 nav {
     background: var(--nav-clr);
-    padding-block: 80px;
-    width: 300px;
+    width: min(100%, 300px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .app-title {
@@ -50,10 +52,18 @@ nav {
     background: var(--hover-clr);
 }
 
-.menu-toggle-btn {
+.menu-close-btn {
     width: 32px;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 40px;
     cursor: pointer;
+}
+
+@media(max-width: 600px) {
+    nav {
+        position: absolute;
+        z-index: 5;
+    }
+
 }
