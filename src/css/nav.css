@@ -1,0 +1,59 @@
+nav {
+    background: var(--nav-clr);
+    padding-block: 80px;
+    width: 300px;
+    position: relative;
+}
+
+.app-title {
+    font-family: 'Roboto-Slab';
+    font-weight: 900;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.nav-items {
+    padding-block: 40px;
+}
+
+.nav-item {
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item .icon {
+    margin-right: 20px;
+}
+
+.create-project-btn {
+    font-family: "Roboto-Bold";
+}
+
+.create-project-btn::before {
+    content: "+";
+    margin-right: 12px;
+}
+
+.project-list-item {
+    padding-left: 80px;
+}
+
+.project-list-item {
+    padding-block: 12px;
+}
+
+
+.nav-item:hover,
+.project-list-item:hover {
+    cursor: pointer;
+    background: var(--hover-clr);
+}
+
+.menu-toggle-btn {
+    width: 32px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}

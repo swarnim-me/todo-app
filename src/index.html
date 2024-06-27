@@ -29,7 +29,20 @@
                 </ul>
             </ul>
         </nav>
-        <section class="content"></section>
+        <section class="dashboard">
+            <div class="header">
+                <input type="text" class="create-todo-input" placeholder="Create a new todo (Ctrl/CMD + K)">
+                <button class="create-todo-btn">Create a new todo</button>
+            </div>
+            <small class="tip">Tip: You can add additional details to your todo items even if you don't enter any text
+                above.</small>
+            <select name="sort" id="sort" class="sort">
+                <option value="None">Sort Items</option>
+                <option value="date">Date</option>
+                <option value="priority">Priority</option>
+                <option value="project">Project</option>
+            </select>
+        </section>
     </main>
 </body>
 

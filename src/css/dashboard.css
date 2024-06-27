@@ -1,0 +1,52 @@
+.dashboard {
+    flex: 1;
+    background: var(--background-clr);
+    padding: 32px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.create-todo-btn,
+.create-todo-input {
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    padding: 20px 12px;
+}
+
+.create-todo-input {
+    font-family: 'Roboto-Light';
+    flex: 1;
+    background: var(--nav-clr);
+    outline: none;
+}
+
+.create-todo-btn {
+    background: var(--primary-clr);
+    color: white;
+    font-family: 'Roboto-Bold';
+    padding-inline: 20px;
+}
+
+.sort {
+    float: right;
+    margin-top: 20px;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    width: 120px;
+    padding: 8px;
+    outline: none;
+    /* Custom dropdown icon */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("../assets/icons/down-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 1.5rem auto;
+}

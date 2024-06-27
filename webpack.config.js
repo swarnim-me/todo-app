@@ -34,8 +34,9 @@ module.exports = {
             },
             {
                 test: /\.svg$/i,
-                use: "raw-loader"
-            }
+                type: 'asset',
+                resourceQuery: /url/, // *.svg?url
+            },
         ],
     },
 }
