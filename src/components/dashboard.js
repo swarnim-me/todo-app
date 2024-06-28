@@ -5,12 +5,11 @@ const createTodoBtn = document.querySelector(".create-todo-btn");
 const addTodoDialog = document.querySelector(".add-todo-dialog");
 
 const showEditDialog = () => {
-    // addTodoDialog.showModal();
+    addTodoDialog.showModal();
 }
 
 const setupDashboardEvents = () => {
     createTodoBtn.addEventListener("click", showEditDialog);
-    addTodoDialog.showModal();
 }
 
 export default setupDashboardEvents;

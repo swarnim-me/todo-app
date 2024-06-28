@@ -1,0 +1,26 @@
+{
+    "projects": [
+        {
+            "id": 0,
+            "title": "health"
+        },
+        {
+            "id": 1,
+            "title": "relationship"
+        },
+        {
+            "id": 2,
+            "title": "coding"
+        }
+    ],
+    "todos": [
+        {
+            "id": 0,
+            "title": "Sample Todo",
+            "notes": "This is a sample todo",
+            "priority": 2,
+            "dueDate": "20-7-2024",
+            "project": 2
+        }
+    ]
+}
