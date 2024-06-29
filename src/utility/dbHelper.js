@@ -3,16 +3,20 @@ const DbHelper = (function () {
         return localStorage.getItem("data");
     }
 
-    const addTodo = (todo) => {
-        const activeDb = getDbItems();
-        activeDb.todos.push(todo);
+    const setDbItems = (value) => {
         localStorage.setItem("data", value);
     }
 
-    const addProject = (todo) => {
+    const addTodo = (todo) => {
         const activeDb = getDbItems();
-        activeDb.projects.push(todo);
-        localStorage.setItem("data", value);
+        activeDb.todos.push(todo);
+        setDbItems(activeDb);
+    }
+
+    const addProject = (project) => {
+        const activeDb = getDbItems();
+        activeDb.projects.push(project);
+        setDbItems(activeDb);
     }
 
     const getTodoById = (id) => {
@@ -31,5 +35,3 @@ const DbHelper = (function () {
 
     return { addTodo, addProject, getTodoById, getProjectById };
 })();
-
-export default DbHelper;
