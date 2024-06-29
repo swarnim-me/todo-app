@@ -1,37 +1,36 @@
-const DbHelper = (function () {
-    const getDbItems = () => {
+export default class DbHelper {
+    getDbItems = () => {
         return localStorage.getItem("data");
     }
 
-    const setDbItems = (value) => {
+    setDbItems = (value) => {
         localStorage.setItem("data", value);
     }
 
-    const addTodo = (todo) => {
+    addTodo = (todo) => {
         const activeDb = getDbItems();
         activeDb.todos.push(todo);
         setDbItems(activeDb);
     }
 
-    const addProject = (project) => {
+    addProject = (project) => {
         const activeDb = getDbItems();
         activeDb.projects.push(project);
         setDbItems(activeDb);
     }
 
-    const getTodoById = (id) => {
+    getTodoById = (id) => {
         const activeDb = getDbItems();
         activeDb.todos.forEach((todo) => {
             if (todo.id === id) return todo;
         })
     }
 
-    const getProjectById = (id) => {
+    getProjectById = (id) => {
         const activeDb = getDbItems();
         activeDb.todos.forEach((todo) => {
             if (todo.id === id) return todo;
         })
     }
-
-    return { addTodo, addProject, getTodoById, getProjectById };
-})();
+    // TODO: Write Update Todo, Delete Todo, Delete Project methods
+}
