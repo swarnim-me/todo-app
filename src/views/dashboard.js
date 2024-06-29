@@ -1,15 +1,24 @@
 import '../css/dashboard.css';
 import '../css/modal.css';
 
-const createTodoBtn = document.querySelector(".create-todo-btn");
-const addTodoDialog = document.querySelector(".add-todo-dialog");
+export default class Dashboard {
+    constructor() {
+        this.createTodoBtn = document.querySelector(".create-todo-btn");
+        this.addTodoDialog = document.querySelector(".add-todo-dialog");
+        this.closeDialogBtn = document.querySelector(".close-dialog-btn");
+        this.bindEvents();
+    }
 
-const showEditDialog = () => {
-    addTodoDialog.showModal();
+    bindEvents = () => {
+        this.createTodoBtn.addEventListener("click", this.showAddDialog);
+        this.closeDialogBtn.addEventListener("click", this.closeDialog);
+    }
+
+    showAddDialog = () => {
+        this.addTodoDialog.showModal();
+    }
+
+    closeDialog = (event) => {
+        event.srcElement.parentElement.close();
+    }
 }
-
-const setupDashboardEvents = () => {
-    createTodoBtn.addEventListener("click", showEditDialog);
-}
-
-export default setupDashboardEvents;

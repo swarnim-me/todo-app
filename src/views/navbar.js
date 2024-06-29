@@ -1,23 +1,27 @@
 import '../css/nav.css';
 
-const menuCloseBtn = document.querySelector(".menu-close-btn");
-const menuOpenBtn = document.querySelector(".menu-open-btn");
-const nav = document.querySelector("nav");
-const toggleMenu = () => {
-    if (nav.style.width === "0px") {
-        nav.style.width = "300px";
-        menuOpenBtn.style.display = "none";
+export default class Navbar {
+    constructor() {
+        this.nav = document.querySelector("nav");
+        this.menuCloseBtn = document.querySelector(".menu-close-btn");
+        this.menuOpenBtn = document.querySelector(".menu-open-btn");
+        this.bindEvents();
     }
-    else {
-        nav.style.width = "0px";
-        menuOpenBtn.style.display = "block";
-        nav.style.overflow = "hidden";
+
+    bindEvents = () => {
+        this.menuCloseBtn.addEventListener("click", this.toggleMenu);
+        this.menuOpenBtn.addEventListener("click", this.toggleMenu);
+    }
+
+    toggleMenu = () => {
+        if (this.nav.style.width === "0px") {
+            this.nav.style.width = "300px";
+            this.menuOpenBtn.style.display = "none";
+        }
+        else {
+            this.nav.style.width = "0px";
+            this.menuOpenBtn.style.display = "block";
+            this.nav.style.overflow = "hidden";
+        }
     }
 }
-
-const setupNavEvents = () => {
-    menuCloseBtn.addEventListener("click", toggleMenu);
-    menuOpenBtn.addEventListener("click", toggleMenu);
-}
-
-export default setupNavEvents;

@@ -1,6 +1,14 @@
 export default class DbHelper {
+    constructor() {
+        if (!localStorage.getItem("data")) {
+            localStorage.setItem("data", JSON.stringify({
+                projects: [{ id: 0, title: "Inbox" }],
+                todos: []
+            }))
+        }
+    }
     getDbItems = () => {
-        return localStorage.getItem("data");
+        return JSON.parse(localStorage.getItem("data"));
     }
 
     setDbItems = (value) => {
