@@ -39,6 +39,7 @@ nav {
 
 .project-list-item {
     padding-left: 80px;
+    text-transform: capitalize;
 }
 
 .project-list-item {

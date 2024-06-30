@@ -6,10 +6,8 @@ export default class TodoEle {
         this.todoEle = document.createElement("div");
         this.todoEle.setAttribute("id", todo.id);
         this.todoEle.classList.add("todo");
-        this.todosWrapperEle = document.querySelector(".todos-wrapper");
         this.todo = todo;
         this.createTodo();
-        this.addTodoToScreen();
     }
 
     createTodo() {
@@ -57,10 +55,8 @@ export default class TodoEle {
 
         this.bindEvents();
         this.todoEle.append(todoInfoEle, todoDescriptionEle);
-    }
 
-    addTodoToScreen() {
-        this.todosWrapperEle.appendChild(this.todoEle);
+        this.screenController.addTodoToScreen(this.todoEle);
     }
 
     bindEvents() {
