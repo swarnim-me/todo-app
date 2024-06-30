@@ -30,9 +30,9 @@ export default class AddTodoDialog {
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
             }
-            console.log(newTodo);
+            this.screenController.addTodo(newTodo);
+            // console.log(newTodo);
         }
     }
 
-    // submitTodoBtn.addEventListener("click", submitTodo);
 }

@@ -12,33 +12,43 @@ export default class DbHelper {
     }
 
     setDbItems = (value) => {
-        localStorage.setItem("data", value);
+        localStorage.setItem("data", JSON.stringify(value));
     }
 
     addTodo = (todo) => {
-        const activeDb = getDbItems();
+        const activeDb = this.getDbItems();
         activeDb.todos.push(todo);
-        setDbItems(activeDb);
+        this.setDbItems(activeDb);
     }
 
     addProject = (project) => {
-        const activeDb = getDbItems();
+        const activeDb = this.getDbItems();
         activeDb.projects.push(project);
-        setDbItems(activeDb);
+        this.setDbItems(activeDb);
     }
 
     getTodoById = (id) => {
-        const activeDb = getDbItems();
+        const activeDb = this.getDbItems();
         activeDb.todos.forEach((todo) => {
             if (todo.id === id) return todo;
         })
     }
 
     getProjectById = (id) => {
-        const activeDb = getDbItems();
+        const activeDb = this.getDbItems();
         activeDb.todos.forEach((todo) => {
             if (todo.id === id) return todo;
         })
+    }
+
+    getTotalTodos = () => {
+        const activeDb = this.getDbItems();
+        return activeDb.todos.length;
+    }
+
+    getTotalProjects = () => {
+        const activeDb = this.getDbItems();
+        return activeDb.project.length;
     }
     // TODO: Write Update Todo, Delete Todo, Delete Project methods
 }

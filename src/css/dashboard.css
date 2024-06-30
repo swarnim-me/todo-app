@@ -37,13 +37,15 @@
 }
 
 .sort {
-    float: right;
-    margin-top: 20px;
+    /* float: right; */
+    color: var(--font-clr);
+    margin-left: auto;
     font-size: 1rem;
     background: none;
     border: none;
     width: 120px;
     padding: 8px;
+    display: block;
     outline: none;
     /* Custom dropdown icon */
     appearance: none;

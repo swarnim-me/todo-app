@@ -1,0 +1,42 @@
+.todos-wrapper {
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--nav-clr);
+    padding-block: 20px;
+}
+
+.todo-header,
+.todo-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.todo-footer {
+    font-family: 'Roboto-Light';
+}
+
+.todo-checkbox {
+    appearance: none;
+    background: var(--nav-clr);
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+}
+
+.todo-checkbox:checked {
+    background-image: url("../assets/icons/tick.svg");
+}
+
+.todo-priority {
+    height: 12px;
+    width: 12px;
+    background: red;
+    border-radius: 100%;
+}
