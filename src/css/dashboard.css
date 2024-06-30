@@ -4,6 +4,7 @@
     padding: 32px;
     position: relative;
     z-index: 2;
+    min-height: 100vh;
 }
 
 .header {

@@ -18,9 +18,9 @@
             "id": 0,
             "title": "Sample Todo",
             "notes": "This is a sample todo",
-            "priority": 2,
+            "priority": "low",
             "dueDate": "20-7-2024",
-            "project": 2
+            "project": "Coding"
         }
     ]
 }

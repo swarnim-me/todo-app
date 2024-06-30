@@ -65,15 +65,15 @@ label {
 }
 
 #low-priority-input:checked {
-    background-color: #FFDD2A;
+    background-color: var(--low-priority);
 }
 
 #medium-priority-input:checked {
-    background-color: #FFB46F;
+    background-color: var(--medium-priority);
 }
 
 #high-priority-input:checked {
-    background-color: #FF6F6F;
+    background-color: var(--high-priority);
 }
 
 

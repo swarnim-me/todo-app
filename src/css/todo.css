@@ -5,10 +5,25 @@
 }
 
 .todo {
-    display: flex;
-    justify-content: space-between;
     border-bottom: 2px solid var(--nav-clr);
     padding-block: 20px;
+}
+
+.todo-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-description {
+    padding-top: 20px;
+    height: fit-content;
+    transition: .4s;
+}
+
+.hide-description {
+    padding-top: 0px;
+    height: 0px;
+    overflow: hidden;
 }
 
 .todo-header,
@@ -35,8 +50,9 @@
 }
 
 .todo-priority {
+    /* TODO: Remove this */
+    background: red;
     height: 12px;
     width: 12px;
-    background: red;
     border-radius: 100%;
 }

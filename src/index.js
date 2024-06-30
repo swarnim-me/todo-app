@@ -1,10 +1,5 @@
 import './css/style.css';
 import './css/todo.css';
+import PageLoader from './controllers/pageLoader';
 
-import Navbar from './views/navbar';
-import Dashboard from './views/dashboard';
-import AddTodoDialog from './views/addTodoDialog';
-
-new AddTodoDialog();
-new Navbar();
-new Dashboard();
+const pageLoader = new PageLoader();

@@ -4,6 +4,9 @@
     --font-clr: #424242;
     --primary-clr: #339DFF;
     --hover-clr: #E1E1E1;
+    --low-priority: #FFDD2A;
+    --medium-priority: #FFB46F;
+    --high-priority: #FF6F6F;
 }
 
 @font-face {
@@ -33,8 +36,8 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
     background: var(--background-clr);
     color: var(--font-clr);
     font-family: 'Roboto-Regular';
@@ -51,12 +54,6 @@ main {
 
 li {
     list-style: none;
-}
-
-
-nav,
-.dashboard {
-    height: 100vh;
 }
 
 .close-dialog-btn {

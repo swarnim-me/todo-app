@@ -7,7 +7,7 @@ export default class AddTodoDialog {
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
         this.todoTitle = document.querySelector("#title-input");
         this.todoDueDate = document.querySelector("#date-input");
-        this.todoPriority = document.querySelector("input[name='priority-input'");
+        this.todoPriority = document.querySelectorAll('input[name="priority-input"]');
         this.todoNotes = document.querySelector("#notes-input");
         this.todoProject = document.querySelector("#project-input");
         this.bindEvents();
@@ -18,7 +18,15 @@ export default class AddTodoDialog {
     }
 
     submitTodo = (event) => {
+        // Get priority from radio buttons
+        let todoPriority;
+        this.todoPriority.forEach(priority => {
+            if (priority.checked) {
+                todoPriority = priority.value;
+            }
+        })
         // event.preventDefault();
+        console.log(this.todoPriority);
         event.preventDefault();
         const checkStatus = this.addTodoForm.checkValidity();
         this.addTodoForm.reportValidity();
@@ -26,7 +34,7 @@ export default class AddTodoDialog {
             const newTodo = {
                 title: this.todoTitle.value,
                 dueDate: this.todoDueDate.value,
-                priority: this.todoPriority.value,
+                priority: todoPriority,
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
             }
