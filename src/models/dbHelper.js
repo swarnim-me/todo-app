@@ -50,5 +50,15 @@ export default class DbHelper {
         const activeDb = this.getDbItems();
         return activeDb.project.length;
     }
+
+    updateTodo = (todo) => {
+        const activeDb = this.getDbItems();
+        activeDb.todos.forEach((oldTodo, index) => {
+            if (todo.id === oldTodo.id) {
+                activeDb.todos[index] = { ...oldTodo, ...todo };
+            }
+        })
+        this.setDbItems(activeDb);
+    }
     // TODO: Write Update Todo, Delete Todo, Delete Project methods
 }

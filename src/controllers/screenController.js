@@ -16,4 +16,8 @@ export default class ScreenController {
     addProject = (project) => {
         this.dbHelper.addProject(project);
     }
+
+    updateTodo = (todo) => {
+        this.dbHelper.updateTodo(todo);
+    }
 }

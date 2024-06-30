@@ -1,5 +1,8 @@
+import ScreenController from "../controllers/screenController";
+
 export default class TodoEle {
     constructor(todo) {
+        this.screenController = new ScreenController();
         this.todoEle = document.createElement("div");
         this.todoEle.setAttribute("id", todo.id);
         this.todoEle.classList.add("todo");
@@ -22,12 +25,14 @@ export default class TodoEle {
 
         const todoCheckboxEle = document.createElement("input");
         todoCheckboxEle.setAttribute("type", "checkbox");
+        if (this.todo.isCompleted) todoCheckboxEle.setAttribute("checked", true);
         todoCheckboxEle.classList.add("todo-checkbox");
         todoCheckboxEle.addEventListener("click", this.toggleComplete);
 
         const todoTitleEle = document.createElement("todo-title");
         todoTitleEle.classList.add("todo-title");
         todoTitleEle.textContent = this.todo.title;
+        if (this.todo.isCompleted) todoTitleEle.style.textDecoration = "line-through";
 
         todoHeaderEle.append(todoCheckboxEle, todoTitleEle);
 
@@ -66,10 +71,14 @@ export default class TodoEle {
         event.stopPropagation();
         const checkboxEle = this.getChildElement(this.todoEle, '.todo-checkbox');
         const titleEle = this.getChildElement(this.todoEle, '.todo-title');
-        if (!checkboxEle.checked)
-            titleEle.style.textDecoration = "none";
-        else
+        if (checkboxEle.checked) {
+            this.screenController.updateTodo({ ...this.todo, isCompleted: true });
             titleEle.style.textDecoration = "line-through";
+        }
+        else {
+            this.screenController.updateTodo({ ...this.todo, isCompleted: false });
+            titleEle.style.textDecoration = "none";
+        }
     }
 
     toggleDescription = () => {
