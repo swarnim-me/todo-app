@@ -33,9 +33,8 @@ module.exports = {
                 type: "asset/resource",
             },
             {
-                test: /\.svg$/i,
-                type: 'asset',
-                resourceQuery: /url/, // *.svg?url
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
             },
         ],
     },

@@ -56,3 +56,22 @@
     width: 12px;
     border-radius: 100%;
 }
+
+.todo-utility-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 0;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.todo:hover .todo-utility-wrapper {
+    width: 80px;
+}
+
+
+.todo-utility-wrapper *:hover {
+    cursor: pointer;
+    filter: contrast(10);
+}

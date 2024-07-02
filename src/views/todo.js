@@ -1,4 +1,6 @@
 import ScreenController from "../controllers/screenController";
+import editIcon from '../assets/icons/pencil.svg';
+import deleteIcon from '../assets/icons/delete.svg';
 
 export default class TodoEle {
     constructor(todo) {
@@ -49,7 +51,25 @@ export default class TodoEle {
         todoPriorityEle.classList.add("todo-priority");
         todoPriorityEle.style.background = getComputedStyle(document.body).getPropertyValue(`--${this.todo.priority}-priority`);
 
-        todoFooterEle.append(todoDueDateEle, todoProjectEle, todoPriorityEle);
+        // <div class="todo-utility-wrapper">
+        //                         <img class="icon" src="./assets/icons/pencil.svg" alt="Edit Todo">
+        //                         <img class="icon" src="./assets/icons/delete.svg" alt="Delete Todo">
+        //                     </div>
+
+        const todoUtilityWrapperEle = document.createElement("div");
+        todoUtilityWrapperEle.classList.add("todo-utility-wrapper");
+
+        const editIconEle = document.createElement("img");
+        editIconEle.classList.add("icon")
+        editIconEle.setAttribute("src", editIcon);
+
+        const deleteIconEle = document.createElement("img");
+        deleteIconEle.classList.add("icon")
+        deleteIconEle.setAttribute("src", deleteIcon);
+
+        todoUtilityWrapperEle.append(editIconEle, deleteIconEle);
+
+        todoFooterEle.append(todoDueDateEle, todoProjectEle, todoPriorityEle, todoUtilityWrapperEle);
 
         todoInfoEle.append(todoHeaderEle, todoFooterEle);
 
