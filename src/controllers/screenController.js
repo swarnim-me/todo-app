@@ -9,9 +9,8 @@ export default class ScreenController {
         this.projectSideBarEle = document.querySelector(".project-list");
     }
     addTodo = (todo) => {
-        const id = this.dbHelper.getTotalTodos();
-        const newTodo = new Todo({ id, ...todo });
-        new TodoEle(todo);
+        const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextId() });
+        new TodoEle(newTodo);
         this.dbHelper.addTodo(newTodo);
     }
 

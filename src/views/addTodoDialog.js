@@ -1,4 +1,5 @@
 import ScreenController from '../controllers/screenController';
+import Todo from '../models/todo';
 
 export default class AddTodoDialog {
     constructor() {
@@ -37,7 +38,7 @@ export default class AddTodoDialog {
                 priority: todoPriority,
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
-            }
+            };
             this.screenController.addTodo(newTodo);
             // console.log(newTodo);
         }

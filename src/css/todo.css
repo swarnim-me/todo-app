@@ -37,6 +37,10 @@
     font-family: 'Roboto-Light';
 }
 
+.todo-project {
+    text-transform: capitalize;
+}
+
 .todo-checkbox {
     appearance: none;
     background: var(--nav-clr);
