@@ -38,19 +38,17 @@ export default class DbHelper {
 
     getProjectById = (id) => {
         const activeDb = this.getDbItems();
-        activeDb.todos.forEach((todo) => {
-            if (todo.id === id) return todo;
-        })
+        return activeDb.projects.find((project) => project.id === id);
     }
 
-    getTotalTodos = () => {
+    getAllTodos = () => {
         const activeDb = this.getDbItems();
         return activeDb.todos.length;
     }
 
-    getTotalProjects = () => {
+    getAllProjects = () => {
         const activeDb = this.getDbItems();
-        return activeDb.project.length;
+        return activeDb.projects;
     }
 
     updateTodo = (todo) => {

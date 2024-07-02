@@ -10,8 +10,9 @@ export default class ScreenController {
     }
     addTodo = (todo) => {
         const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextId() });
-        new TodoEle(newTodo);
         this.dbHelper.addTodo(newTodo);
+        // Mapping Project ID before creating Todo Element
+        new TodoEle({ ...newTodo, project: this.dbHelper.getProjectById(Number(newTodo.project)).title });
     }
 
     addProject = (project) => {

@@ -2,8 +2,9 @@ import ScreenController from '../controllers/screenController';
 import Todo from '../models/todo';
 
 export default class AddTodoDialog {
-    constructor() {
+    constructor(projects) {
         this.screenController = new ScreenController()
+        this.projects = projects;
         this.addTodoForm = document.querySelector(".add-todo-form")
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
         this.todoTitle = document.querySelector("#title-input");
@@ -12,10 +13,22 @@ export default class AddTodoDialog {
         this.todoNotes = document.querySelector("#notes-input");
         this.todoProject = document.querySelector("#project-input");
         this.bindEvents();
+        this.setupProjectsDropdown();
     }
 
     bindEvents = () => {
         this.submitTodoBtn.addEventListener("click", this.submitTodo);
+    }
+
+    setupProjectsDropdown() {
+        this.todoProject.innerHTML = "";
+        this.projects.forEach(project => {
+            const newOption = document.createElement("option");
+            newOption.setAttribute("value", project.id);
+            // Capitalising first letter in the dropdown
+            newOption.textContent = project.title.charAt(0).toUpperCase() + project.title.slice(1);
+            this.todoProject.append(newOption);
+        })
     }
 
     submitTodo = (event) => {
@@ -27,7 +40,6 @@ export default class AddTodoDialog {
             }
         })
         // event.preventDefault();
-        console.log(this.todoPriority);
         event.preventDefault();
         const checkStatus = this.addTodoForm.checkValidity();
         this.addTodoForm.reportValidity();
@@ -40,7 +52,6 @@ export default class AddTodoDialog {
                 project: this.todoProject.value,
             };
             this.screenController.addTodo(newTodo);
-            // console.log(newTodo);
         }
     }
 

@@ -5,7 +5,6 @@ export default class ProjectEle {
         this.screenController = new ScreenController();
         this.project = project;
         this.projectEle = document.createElement("li");
-        console.log(this.projectSideBarEle);
         this.createProject();
     }
 

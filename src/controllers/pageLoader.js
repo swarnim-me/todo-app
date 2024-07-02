@@ -20,9 +20,7 @@ export default class PageLoader {
             new ProjectEle(project);
         })
 
-
-
-        new AddTodoDialog();
+        new AddTodoDialog(this.dbHelper.getAllProjects());
         new Navbar();
         new Dashboard();
 
