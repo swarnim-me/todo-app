@@ -1,5 +1,5 @@
 import ScreenController from '../controllers/screenController';
-import Todo from '../models/todo';
+import '../css/addTodoModal.css';
 
 export default class AddTodoDialog {
     constructor(projects) {

@@ -7,6 +7,8 @@ import Dashboard from '../views/dashboard';
 import AddTodoDialog from '../views/addTodoDialog';
 
 import data from '../data/sampleDB.json';
+import AddProjectDialog from "../views/addProjectDialog";
+import LoadCommonEvents from "../utils/loadCommonEvents";
 
 export default class PageLoader {
     constructor() {
@@ -21,8 +23,10 @@ export default class PageLoader {
         })
 
         new AddTodoDialog(this.dbHelper.getAllProjects());
+        new AddProjectDialog();
         new Navbar();
         new Dashboard();
+        new LoadCommonEvents();
 
         // Loading sample date
         // TODO: Remove this after testing

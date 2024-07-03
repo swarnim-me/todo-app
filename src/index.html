@@ -51,15 +51,15 @@
         <form class="add-todo-form">
             <div class="form-control">
                 <label for="title-input">Title</label>
-                <input type="text" id="title-input" class="add-todo-input" required>
+                <input type="text" id="title-input" class="dialog-input" required>
             </div>
             <div class="form-control">
                 <label for="date-input">Due Date</label>
-                <input type="date" id="date-input" class="add-todo-input" required>
+                <input type="date" id="date-input" class="dialog-input" required>
             </div>
             <div class="form-control">
                 <label for="project-input">Project</label>
-                <select name="project-input" id="project-input" class="add-todo-input" required>
+                <select name="project-input" id="project-input" class="dialog-input" required>
                     <option value="life">Life</option>
                     <option value="health">Health</option>
                     <option value="relationship">Relationship</option>
@@ -69,17 +69,17 @@
                 <label>Priority</label>
                 <div class="radio-form-control">
                     <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="low-priority-input" class="add-todo-input"
+                        <input name="priority-input" type="radio" id="low-priority-input" class="dialog-input"
                             value="low" required>
                         <label for="low-priority-input">Low</label>
                     </div>
                     <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="medium-priority-input" class="add-todo-input"
+                        <input name="priority-input" type="radio" id="medium-priority-input" class="dialog-input"
                             value="medium" required>
                         <label for="medium-priority-input">Medium</label>
                     </div>
                     <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="high-priority-input" class="add-todo-input"
+                        <input name="priority-input" type="radio" id="high-priority-input" class="dialog-input"
                             value="high" required>
                         <label for="high-priority-input">High</label>
                     </div>
@@ -87,9 +87,19 @@
             </div>
             <div class="form-control">
                 <label for="notes-input">Notes</label>
-                <textarea id="notes-input" class="add-todo-input" rows="6" required></textarea>
+                <textarea id="notes-input" class="dialog-input" rows="6" required></textarea>
             </div>
-            <button class="submit-todo-btn">Create</button>
+            <button class="dialog-btn submit-todo-btn">Create</button>
+        </form>
+    </dialog>
+    <dialog class="add-project-modal">
+        <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <form class="add-project-form">
+            <div class="form-control">
+                <label for="add-project-input">Project Name</label>
+                <input type="text" id="add-project-input" class="dialog-input">
+            </div>
+            <button class="dialog-btn submit-project-btn">Create</button>
         </form>
     </dialog>
 </body>

@@ -5,12 +5,17 @@ export default class Navbar {
         this.nav = document.querySelector("nav");
         this.menuCloseBtn = document.querySelector(".menu-close-btn");
         this.menuOpenBtn = document.querySelector(".menu-open-btn");
+        this.addProjectBtn = document.querySelector(".create-project-btn");
+        // FIXME
+        this.addProjectModal = document.querySelector(".add-project-modal");
+        this.addProjectModal.showModal();
         this.bindEvents();
     }
 
     bindEvents = () => {
         this.menuCloseBtn.addEventListener("click", this.toggleMenu);
         this.menuOpenBtn.addEventListener("click", this.toggleMenu);
+        this.addProjectBtn.addEventListener("click", this.showAddProjectModal);
     }
 
     toggleMenu = () => {
@@ -23,5 +28,9 @@ export default class Navbar {
             this.menuOpenBtn.style.display = "block";
             this.nav.style.overflow = "hidden";
         }
+    }
+
+    showAddProjectModal = () => {
+        this.addProjectModal.showModal();
     }
 }
