@@ -6,9 +6,7 @@ export default class Navbar {
         this.menuCloseBtn = document.querySelector(".menu-close-btn");
         this.menuOpenBtn = document.querySelector(".menu-open-btn");
         this.addProjectBtn = document.querySelector(".create-project-btn");
-        // FIXME
         this.addProjectModal = document.querySelector(".add-project-modal");
-        this.addProjectModal.showModal();
         this.bindEvents();
     }
 

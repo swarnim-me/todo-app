@@ -99,3 +99,8 @@ dialog::backdrop {
     font-size: 1rem;
     border-radius: 8px;
 }
+
+.dialog-title {
+    font-family: "Roboto-Bold";
+    margin-bottom: 20px;
+}

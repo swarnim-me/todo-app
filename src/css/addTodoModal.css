@@ -24,12 +24,7 @@ label {
     font-family: "Roboto-Light";
 }
 
-.add-todo-dialog-title {
-    font-family: "Roboto-Bold";
-    margin-bottom: 20px;
-}
-
-.add-todo-dialog input[type="radio"] {
+.add-todo-modal input[type="radio"] {
     appearance: none;
     background: var(--nav-clr);
     border-radius: 100%;

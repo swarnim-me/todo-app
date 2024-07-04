@@ -4,10 +4,10 @@ import ProjectEle from "../views/project";
 
 import Navbar from '../views/navbar';
 import Dashboard from '../views/dashboard';
-import AddTodoDialog from '../views/addTodoDialog';
+import AddTodoDialog from '../views/addTodoModal';
 
 import data from '../data/sampleDB.json';
-import AddProjectDialog from "../views/addProjectDialog";
+import AddProjectDialog from "../views/addProjectModal";
 import LoadCommonEvents from "../utils/loadCommonEvents";
 
 export default class PageLoader {
@@ -30,6 +30,6 @@ export default class PageLoader {
 
         // Loading sample date
         // TODO: Remove this after testing
-        this.dbHelper.setDbItems(data);
+        // this.dbHelper.setDbItems(data);
     }
 }

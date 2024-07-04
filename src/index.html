@@ -45,9 +45,9 @@
             </div>
         </section>
     </main>
-    <dialog class="add-todo-dialog">
+    <dialog class="add-todo-modal">
         <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
-        <h1 class="add-todo-dialog-title">Add Todo</h1>
+        <h1 class="dialog-title">Add Todo</h1>
         <form class="add-todo-form">
             <div class="form-control">
                 <label for="title-input">Title</label>
@@ -94,10 +94,11 @@
     </dialog>
     <dialog class="add-project-modal">
         <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <h1 class="dialog-title">Add Project</h1>
         <form class="add-project-form">
             <div class="form-control">
                 <label for="add-project-input">Project Name</label>
-                <input type="text" id="add-project-input" class="dialog-input">
+                <input type="text" id="add-project-input" class="dialog-input" required>
             </div>
             <button class="dialog-btn submit-project-btn">Create</button>
         </form>

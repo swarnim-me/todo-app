@@ -4,7 +4,8 @@ export default class DbHelper {
             localStorage.setItem("data", JSON.stringify({
                 projects: [{ id: 0, title: "Inbox" }],
                 todos: [],
-                nextId: 0
+                nextTodoId: 0,
+                nextProjectId: 1 // Default project is "Inbox"
             }))
         }
     }
@@ -19,13 +20,14 @@ export default class DbHelper {
     addTodo = (todo) => {
         const activeDb = this.getDbItems();
         activeDb.todos.push(todo);
-        activeDb.nextId++;
+        activeDb.nextTodoId++;
         this.setDbItems(activeDb);
     }
 
     addProject = (project) => {
         const activeDb = this.getDbItems();
         activeDb.projects.push(project);
+        activeDb.nextProjectId++;
         this.setDbItems(activeDb);
     }
 
@@ -59,8 +61,12 @@ export default class DbHelper {
         this.setDbItems(activeDb);
     }
 
-    getNextId = () => {
-        return this.getDbItems().nextId;
+    getNextTodoId = () => {
+        return this.getDbItems().nextTodoId;
+    }
+
+    getNextProjectId = () => {
+        return this.getDbItems().nextProjectId;
     }
     // TODO: Write Update Todo, Delete Todo, Delete Project methods
 }

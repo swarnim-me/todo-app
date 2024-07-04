@@ -6,6 +6,7 @@ export default class AddTodoDialog {
         this.screenController = new ScreenController()
         this.projects = projects;
         this.addTodoForm = document.querySelector(".add-todo-form")
+        this.addTodoModal = document.querySelector(".add-todo-modal");
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
         this.todoTitle = document.querySelector("#title-input");
         this.todoDueDate = document.querySelector("#date-input");
@@ -52,6 +53,7 @@ export default class AddTodoDialog {
                 project: this.todoProject.value,
             };
             this.screenController.addTodo(newTodo);
+            this.addTodoModal.close();
         }
     }
 

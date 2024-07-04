@@ -24,5 +24,6 @@
             "isCompleted": false
         }
     ],
-    "nextId": 1
+    "nextTodoId": 1,
+    "nextProjectId": 3
 }
