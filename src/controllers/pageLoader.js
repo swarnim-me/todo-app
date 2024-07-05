@@ -15,7 +15,7 @@ export default class PageLoader {
         this.dbHelper = new DbHelper();
         const dbData = this.dbHelper.getDbItems();
         dbData.todos.forEach(todo => {
-            new TodoEle(todo);
+            new TodoEle({ ...todo, project: this.dbHelper.getProjectById(todo.project).title });
         })
 
         dbData.projects.forEach(project => {

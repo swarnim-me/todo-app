@@ -24,8 +24,6 @@ export default class ScreenController {
         const newProject = new Project({ ...project, id: this.dbHelper.getNextProjectId() });
         this.dbHelper.addProject(newProject);
         new ProjectEle(newProject);
-
-        // TODO: Update the Add Todo Modal
         this.updateProjects.updateProjects(newProject);
 
     }

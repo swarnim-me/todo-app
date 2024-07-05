@@ -1,5 +1,6 @@
 import ScreenController from '../controllers/screenController';
 import '../css/addTodoModal.css';
+import Formatter from '../utils/formatter';
 
 export default class AddTodoDialog {
     constructor(projects) {
@@ -27,12 +28,12 @@ export default class AddTodoDialog {
             const newOption = document.createElement("option");
             newOption.setAttribute("value", project.id);
             // Capitalising first letter in the dropdown
-            newOption.textContent = project.title.charAt(0).toUpperCase() + project.title.slice(1);
+            newOption.textContent = Formatter.capitalize(project.title);
             this.todoProject.append(newOption);
         })
     }
 
-    addTodoTodDb = (event) => {
+    addTodoToDb = (event) => {
         // Get priority from radio buttons
         let todoPriority;
         this.todoPriority.forEach(priority => {
@@ -40,7 +41,6 @@ export default class AddTodoDialog {
                 todoPriority = priority.value;
             }
         })
-        // event.preventDefault();
         event.preventDefault();
         const checkStatus = this.addTodoForm.checkValidity();
         this.addTodoForm.reportValidity();

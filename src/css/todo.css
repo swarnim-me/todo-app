@@ -16,8 +16,10 @@
 
 .todo-description {
     padding-top: 20px;
+    padding-left: 40px;
     height: fit-content;
     transition: .4s;
+    opacity: .8;
 }
 
 .hide-description {

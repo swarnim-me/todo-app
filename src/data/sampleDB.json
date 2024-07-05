@@ -20,7 +20,7 @@
             "notes": "This is a sample todo",
             "priority": "low",
             "dueDate": "20-7-2024",
-            "project": "Coding",
+            "project": 2,
             "isCompleted": false
         }
     ],
