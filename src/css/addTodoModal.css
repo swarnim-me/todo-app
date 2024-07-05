@@ -30,6 +30,10 @@ label {
     border-radius: 100%;
 }
 
+.add-todo-modal option {
+    text-transform: capitalize;
+}
+
 .add-todo-input#project-input {
     appearance: none;
 }

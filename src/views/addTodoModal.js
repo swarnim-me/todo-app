@@ -21,11 +21,6 @@ export default class AddTodoDialog {
         this.submitTodoBtn.addEventListener("click", this.addTodoToDb);
     }
 
-    updateProjects = () => {
-        this.projects = projects;
-        this.setupProjectsDropdown();
-    }
-
     setupProjectsDropdown() {
         this.todoProject.innerHTML = "";
         this.projects.forEach(project => {

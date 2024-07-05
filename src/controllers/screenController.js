@@ -3,10 +3,12 @@ import Todo from '../models/todo';
 import Project from '../models/project';
 import ProjectEle from '../views/project';
 import TodoEle from '../views/todo';
+import ProjectsHelper from '../utils/projectsHelper';
 
 export default class ScreenController {
     constructor() {
         this.dbHelper = new DbHelper();
+        this.updateProjects = new ProjectsHelper();
         this.todosWrapperEle = document.querySelector(".todos-wrapper");
         this.projectSideBarEle = document.querySelector(".project-list");
     }
@@ -24,6 +26,7 @@ export default class ScreenController {
         new ProjectEle(newProject);
 
         // TODO: Update the Add Todo Modal
+        this.updateProjects.updateProjects(newProject);
 
     }
 

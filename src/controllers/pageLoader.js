@@ -4,10 +4,10 @@ import ProjectEle from "../views/project";
 
 import Navbar from '../views/navbar';
 import Dashboard from '../views/dashboard';
-import AddTodoDialog from '../views/addTodoModal';
+import AddTodoModal from '../views/addTodoModal';
 
 import data from '../data/sampleDB.json';
-import AddProjectDialog from "../views/addProjectModal";
+import AddProjectModal from "../views/addProjectModal";
 import LoadCommonEvents from "../utils/loadCommonEvents";
 
 export default class PageLoader {
@@ -22,8 +22,8 @@ export default class PageLoader {
             new ProjectEle(project);
         })
 
-        new AddTodoDialog(this.dbHelper.getAllProjects());
-        new AddProjectDialog();
+        new AddTodoModal(this.dbHelper.getAllProjects());
+        new AddProjectModal();
         new Navbar();
         new Dashboard();
         new LoadCommonEvents();
