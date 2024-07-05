@@ -24,7 +24,12 @@ export default class AddProjectDialog {
                 title: this.projectTitleInputEle.value,
             };
             this.screenController.addProject(newProject);
+            this.clearInputs();
             this.addProjectModal.close();
         }
+    }
+
+    clearInputs() {
+        this.addProjectForm.reset();
     }
 }

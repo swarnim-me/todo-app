@@ -18,7 +18,12 @@ export default class AddTodoDialog {
     }
 
     bindEvents = () => {
-        this.submitTodoBtn.addEventListener("click", this.submitTodo);
+        this.submitTodoBtn.addEventListener("click", this.addTodoToDb);
+    }
+
+    updateProjects = () => {
+        this.projects = projects;
+        this.setupProjectsDropdown();
     }
 
     setupProjectsDropdown() {
@@ -32,7 +37,7 @@ export default class AddTodoDialog {
         })
     }
 
-    submitTodo = (event) => {
+    addTodoTodDb = (event) => {
         // Get priority from radio buttons
         let todoPriority;
         this.todoPriority.forEach(priority => {
@@ -53,8 +58,13 @@ export default class AddTodoDialog {
                 project: this.todoProject.value,
             };
             this.screenController.addTodo(newTodo);
+            this.clearInputs();
             this.addTodoModal.close();
         }
+    }
+
+    clearInputs() {
+        this.addTodoForm.reset();
     }
 
 }

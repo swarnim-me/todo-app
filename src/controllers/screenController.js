@@ -1,6 +1,7 @@
 import DbHelper from '../models/dbHelper';
 import Todo from '../models/todo';
 import Project from '../models/project';
+import ProjectEle from '../views/project';
 import TodoEle from '../views/todo';
 
 export default class ScreenController {
@@ -9,6 +10,7 @@ export default class ScreenController {
         this.todosWrapperEle = document.querySelector(".todos-wrapper");
         this.projectSideBarEle = document.querySelector(".project-list");
     }
+
     addTodo = (todo) => {
         const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
         this.dbHelper.addTodo(newTodo);
@@ -19,7 +21,10 @@ export default class ScreenController {
     addProject = (project) => {
         const newProject = new Project({ ...project, id: this.dbHelper.getNextProjectId() });
         this.dbHelper.addProject(newProject);
-        // TODO: Add logic to refresh sidebar and add dropdown
+        new ProjectEle(newProject);
+
+        // TODO: Update the Add Todo Modal
+
     }
 
     updateTodo = (todo) => {

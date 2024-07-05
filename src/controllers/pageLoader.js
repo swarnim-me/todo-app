@@ -30,6 +30,6 @@ export default class PageLoader {
 
         // Loading sample date
         // TODO: Remove this after testing
-        // this.dbHelper.setDbItems(data);
+        this.dbHelper.setDbItems(data);
     }
 }
