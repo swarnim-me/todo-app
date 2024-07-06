@@ -38,7 +38,7 @@ export default class DbHelper {
 
     getProjectById = (id) => {
         const activeDb = this.getDbItems();
-        return activeDb.projects.find((project) => project.id === id);
+        return activeDb.projects.find((project) => project.id === Number(id));
     }
 
     getAllTodos = () => {

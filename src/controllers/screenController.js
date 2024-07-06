@@ -4,6 +4,7 @@ import Project from '../models/project';
 import ProjectEle from '../views/project';
 import TodoEle from '../views/todo';
 import ProjectsHelper from '../utils/projectsHelper';
+import AddTodoModal from '../views/addTodoModal';
 
 export default class ScreenController {
     constructor() {
@@ -28,9 +29,12 @@ export default class ScreenController {
 
     }
 
-    updateTodo = (todo) => {
-        this.dbHelper.updateTodo(todo);
+    editTodo(todo) {
+        console.log(todo);
+        this.addTodoModal = new AddTodoModal(this.dbHelper.getAllProjects(), this.dbHelper.getTodoById(todo.id));
+        this.addTodoModal.showModal();
     }
+
 
     addTodoToScreen(todoEle) {
         this.todosWrapperEle.appendChild(todoEle);

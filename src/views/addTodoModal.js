@@ -3,7 +3,8 @@ import '../css/addTodoModal.css';
 import Formatter from '../utils/formatter';
 
 export default class AddTodoDialog {
-    constructor(projects) {
+    constructor(projects, todo = {}) {
+        this.todo = todo;
         this.screenController = new ScreenController()
         this.projects = projects;
         this.addTodoForm = document.querySelector(".add-todo-form")
@@ -16,10 +17,21 @@ export default class AddTodoDialog {
         this.todoProject = document.querySelector("#project-input");
         this.bindEvents();
         this.setupProjectsDropdown();
+        if (Object.keys(this.todo).length !== 0) this.setupEditModal();
     }
 
     bindEvents = () => {
         this.submitTodoBtn.addEventListener("click", this.addTodoToDb);
+    }
+
+    setupEditModal() {
+        console.log(this.todoPriority);
+        console.log(this.todo.priority);
+        this.todoTitle.value = this.todo.title;
+        this.todoDueDate.value = this.todo.dueDate;
+        this.todoPriority.forEach(priority => { if (priority.value === this.todo.priority) priority.checked = true });
+        this.todoNotes.value = this.todo.notes;
+        this.todoProject.value = Number(this.todo.project);
     }
 
     setupProjectsDropdown() {
@@ -62,4 +74,7 @@ export default class AddTodoDialog {
         this.addTodoForm.reset();
     }
 
+    showModal() {
+        this.addTodoModal.showModal();
+    }
 }

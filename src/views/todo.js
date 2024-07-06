@@ -51,17 +51,13 @@ export default class TodoEle {
         todoPriorityEle.classList.add("todo-priority");
         todoPriorityEle.style.background = getComputedStyle(document.body).getPropertyValue(`--${this.todo.priority}-priority`);
 
-        // <div class="todo-utility-wrapper">
-        //                         <img class="icon" src="./assets/icons/pencil.svg" alt="Edit Todo">
-        //                         <img class="icon" src="./assets/icons/delete.svg" alt="Delete Todo">
-        //                     </div>
-
         const todoUtilityWrapperEle = document.createElement("div");
         todoUtilityWrapperEle.classList.add("todo-utility-wrapper");
 
         const editIconEle = document.createElement("img");
         editIconEle.classList.add("icon")
         editIconEle.setAttribute("src", editIcon);
+        editIconEle.addEventListener("click", this.editTodo);
 
         const deleteIconEle = document.createElement("img");
         deleteIconEle.classList.add("icon")
@@ -81,6 +77,10 @@ export default class TodoEle {
 
     bindEvents() {
         this.todoEle.addEventListener("click", this.toggleDescription);
+    }
+
+    editTodo = () => {
+        this.screenController.editTodo(this.todo);
     }
 
     toggleComplete = (event) => {
