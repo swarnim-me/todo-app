@@ -1,5 +1,5 @@
 import '../css/dashboard.css';
-import ScreenController from '../controllers/screenController';
+import DatabaseController from '../controllers/databaseController';
 import ModalHelper from '../utils/modalHelper';
 
 export default class Dashboard {

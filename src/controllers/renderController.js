@@ -1,4 +1,6 @@
 import Formatter from "../utils/formatter";
+import TodoEle from "../views/todo";
+import ProjectEle from "../views/project";
 
 class Renderer {
     constructor() {
@@ -27,6 +29,15 @@ class Renderer {
 
     addProjectToScreen(projectEle) {
         this.projectSideBarEle.appendChild(projectEle);
+    }
+
+    createTodo(todo) {
+        new TodoEle(todo);
+    }
+
+    createProject(project) {
+        new ProjectEle(project);
+        this.updateProjects(project); // Update dropdown of Add Todo Modal
     }
 }
 

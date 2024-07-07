@@ -1,4 +1,4 @@
-import ScreenController from "../controllers/screenController";
+import DatabaseController from "../controllers/databaseController";
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import ModalHelper from "../utils/modalHelper";
@@ -48,7 +48,7 @@ export default class TodoEle {
 
         const todoProjectEle = document.createElement("div");
         todoProjectEle.classList.add("todo-project");
-        todoProjectEle.textContent = ScreenController.getProjectById(this.todo.project).title;
+        todoProjectEle.textContent = DatabaseController.getProjectById(this.todo.project).title;
 
         const todoPriorityEle = document.createElement("div");
         todoPriorityEle.classList.add("todo-priority");
@@ -91,11 +91,11 @@ export default class TodoEle {
         const checkboxEle = this.getChildElement(this.todoEle, '.todo-checkbox');
         const titleEle = this.getChildElement(this.todoEle, '.todo-title');
         if (checkboxEle.checked) {
-            ScreenController.updateTodo({ ...this.todo, isCompleted: true });
+            DatabaseController.updateTodo({ ...this.todo, isCompleted: true });
             titleEle.style.textDecoration = "line-through";
         }
         else {
-            ScreenController.updateTodo({ ...this.todo, isCompleted: false });
+            DatabaseController.updateTodo({ ...this.todo, isCompleted: false });
             titleEle.style.textDecoration = "none";
         }
     }

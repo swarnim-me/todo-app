@@ -5,7 +5,7 @@ import ProjectEle from '../views/project';
 import TodoEle from '../views/todo';
 import Renderer from './renderController';
 
-class ScreenController {
+class DatabaseController {
     constructor() {
         this.dbHelper = new DbHelper();
     }
@@ -20,7 +20,7 @@ class ScreenController {
         else {
             const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
             this.dbHelper.addTodo(newTodo);
-            new TodoEle(newTodo);
+            Renderer.createTodo(newTodo);
         }
         // Mapping Project ID before creating Todo Element
     }
@@ -28,8 +28,7 @@ class ScreenController {
     addProject = (project) => {
         const newProject = new Project({ ...project, id: this.dbHelper.getNextProjectId() });
         this.dbHelper.addProject(newProject);
-        new ProjectEle(newProject);
-        Renderer.updateProjects(newProject);
+        Renderer.createProject(newProject);
     }
 
     getProjectById(id) {
@@ -41,4 +40,4 @@ class ScreenController {
     }
 }
 
-export default new ScreenController();
+export default new DatabaseController();
