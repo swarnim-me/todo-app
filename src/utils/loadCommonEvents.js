@@ -1,4 +1,4 @@
-export default class LoadCommonEvents {
+class LoadCommonEvents {
     constructor() {
         this.closeBtns = Array.from(document.querySelectorAll(".close-dialog-btn"));
         this.bindEvents();
@@ -14,3 +14,5 @@ export default class LoadCommonEvents {
         this.parentElement.close();
     }
 }
+
+export default new LoadCommonEvents();

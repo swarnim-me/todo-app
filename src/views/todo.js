@@ -2,6 +2,7 @@ import ScreenController from "../controllers/screenController";
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import ModalHelper from "../utils/modalHelper";
+import '../css/todo.css';
 
 export default class TodoEle {
     constructor(todo) {

@@ -43,7 +43,7 @@ export default class DbHelper {
 
     getAllTodos = () => {
         const activeDb = this.getDbItems();
-        return activeDb.todos.length;
+        return activeDb.todos;
     }
 
     getAllProjects = () => {

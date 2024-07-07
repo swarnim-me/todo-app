@@ -1,8 +1,9 @@
 import ScreenController from '../controllers/screenController';
 import '../css/addProjectModal.css';
 
-export default class AddProjectDialog {
+class AddProjectModal {
     constructor() {
+        console.log("HEY");
         this.screenController = new ScreenController();
         this.addProjectForm = document.querySelector(".add-project-form");
         this.projectTitleInputEle = document.querySelector("#add-project-input");
@@ -33,3 +34,5 @@ export default class AddProjectDialog {
         this.addProjectForm.reset();
     }
 }
+
+export default new AddProjectModal();

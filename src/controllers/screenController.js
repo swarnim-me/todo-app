@@ -18,6 +18,7 @@ export default class ScreenController {
         if (todo.id != null) {
             // Edit logic
             this.dbHelper.updateTodo(todo);
+            this.refreshTodos();
         }
         else {
             const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
@@ -50,4 +51,14 @@ export default class ScreenController {
     getAllProjects() {
         return this.dbHelper.getAllProjects();
     }
+
+    refreshTodos(todos = this.dbHelper.getAllTodos()) {
+        console.log(todos);
+        this.todosWrapperEle.innerHTML = "";
+        todos.forEach(todo => {
+            new TodoEle(todo);
+        });
+    }
+
+
 }

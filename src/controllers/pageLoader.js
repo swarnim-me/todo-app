@@ -4,11 +4,11 @@ import ProjectEle from "../views/project";
 
 import Navbar from '../views/navbar';
 import Dashboard from '../views/dashboard';
-import AddTodoModal from '../views/addTodoModal';
 
 import data from '../data/sampleDB.json';
-import AddProjectModal from "../views/addProjectModal";
-import LoadCommonEvents from "../utils/loadCommonEvents";
+
+// Bind common events
+import "../utils/loadCommonEvents";
 
 import ScreenController from "./screenController";
 
@@ -25,10 +25,9 @@ export default class PageLoader {
             new ProjectEle(project);
         })
 
-        new AddProjectModal();
         new Navbar();
         new Dashboard();
-        new LoadCommonEvents();
+
         // Loading sample date
         // TODO: Remove this after testing
         // this.dbHelper.setDbItems(data);
