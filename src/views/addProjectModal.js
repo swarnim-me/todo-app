@@ -3,7 +3,6 @@ import '../css/addProjectModal.css';
 
 class AddProjectModal {
     constructor() {
-        console.log("HEY");
         this.addProjectForm = document.querySelector(".add-project-form");
         this.projectTitleInputEle = document.querySelector("#add-project-input");
         this.addProjectBtn = document.querySelector(".submit-project-btn");

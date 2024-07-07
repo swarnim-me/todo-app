@@ -1,8 +1,6 @@
 import DbHelper from '../models/dbHelper';
 import Todo from '../models/todo';
 import Project from '../models/project';
-import ProjectEle from '../views/project';
-import TodoEle from '../views/todo';
 import Renderer from './renderController';
 
 class DatabaseController {
@@ -29,6 +27,11 @@ class DatabaseController {
         const newProject = new Project({ ...project, id: this.dbHelper.getNextProjectId() });
         this.dbHelper.addProject(newProject);
         Renderer.createProject(newProject);
+    }
+
+    deleteTodo = (todo) => {
+        this.dbHelper.deleteTodo(todo);
+        Renderer.refreshAllTodos(this.dbHelper.getAllTodos());
     }
 
     getProjectById(id) {

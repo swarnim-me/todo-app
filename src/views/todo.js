@@ -3,6 +3,7 @@ import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import ModalHelper from "../utils/modalHelper";
 import Renderer from '../controllers/renderController';
+import ConfirmDeleteModal from '../views/confirmModal';
 import '../css/todo.css';
 
 export default class TodoEle {
@@ -65,6 +66,7 @@ export default class TodoEle {
         const deleteIconEle = document.createElement("img");
         deleteIconEle.classList.add("icon")
         deleteIconEle.setAttribute("src", deleteIcon);
+        deleteIconEle.addEventListener("click", this.showDeleteModal);
 
         todoUtilityWrapperEle.append(editIconEle, deleteIconEle);
 
@@ -82,8 +84,14 @@ export default class TodoEle {
         this.todoEle.addEventListener("click", this.toggleDescription);
     }
 
-    editTodo = () => {
+    editTodo = (event) => {
+        event.stopPropagation();
         this.modalHelper.showEditTodoModal(this.todo);
+    }
+
+    showDeleteModal = (event) => {
+        event.stopPropagation();
+        ConfirmDeleteModal.registerTodo(this.todo);
     }
 
     toggleComplete = (event) => {
