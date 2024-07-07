@@ -4,8 +4,7 @@ import Formatter from '../utils/formatter';
 
 class AddTodoDialog {
     constructor() {
-        this.screenController = new ScreenController();
-        this.projects = this.screenController.getAllProjects();
+        this.projects = ScreenController.getAllProjects();
         this.addTodoForm = document.querySelector(".add-todo-form")
         this.addTodoModal = document.querySelector(".add-todo-modal");
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
@@ -57,7 +56,7 @@ class AddTodoDialog {
         this.addTodoForm.reportValidity();
         if (checkStatus) {
             const newTodo = {
-                id: this.todo.id ?? null,
+                id: this.todo?.id ?? null,
                 title: this.todoTitle.value,
                 dueDate: this.todoDueDate.value,
                 priority: todoPriority,
@@ -67,6 +66,7 @@ class AddTodoDialog {
             new ScreenController().addTodo(newTodo);
             this.clearInputs();
             this.addTodoModal.close();
+            delete this.todo;
         }
     }
 

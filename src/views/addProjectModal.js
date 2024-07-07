@@ -4,7 +4,6 @@ import '../css/addProjectModal.css';
 class AddProjectModal {
     constructor() {
         console.log("HEY");
-        this.screenController = new ScreenController();
         this.addProjectForm = document.querySelector(".add-project-form");
         this.projectTitleInputEle = document.querySelector("#add-project-input");
         this.addProjectBtn = document.querySelector(".submit-project-btn");
@@ -24,7 +23,7 @@ class AddProjectModal {
             const newProject = {
                 title: this.projectTitleInputEle.value,
             };
-            this.screenController.addProject(newProject);
+            ScreenController.addProject(newProject);
             this.clearInputs();
             this.addProjectModal.close();
         }

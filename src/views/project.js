@@ -1,8 +1,7 @@
-import ScreenController from "../controllers/screenController";
+import Renderer from "../controllers/renderController";
 
 export default class ProjectEle {
     constructor(project) {
-        this.screenController = new ScreenController();
         this.project = project;
         this.projectEle = document.createElement("li");
         this.createProject();
@@ -12,6 +11,6 @@ export default class ProjectEle {
         this.projectEle.classList.add("project-list-item");
         this.projectEle.setAttribute("id", this.project.id);
         this.projectEle.textContent = this.project.title;
-        this.screenController.addProjectToScreen(this.projectEle);
+        Renderer.addProjectToScreen(this.projectEle);
     }
 }

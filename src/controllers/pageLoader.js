@@ -10,12 +10,9 @@ import data from '../data/sampleDB.json';
 // Bind common events
 import "../utils/loadCommonEvents";
 
-import ScreenController from "./screenController";
-
 export default class PageLoader {
     constructor() {
         this.dbHelper = new DbHelper();
-        this.screenController = new ScreenController();
         const dbData = this.dbHelper.getDbItems();
         dbData.todos.forEach(todo => {
             new TodoEle(todo);

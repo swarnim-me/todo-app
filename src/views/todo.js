@@ -2,11 +2,11 @@ import ScreenController from "../controllers/screenController";
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import ModalHelper from "../utils/modalHelper";
+import Renderer from '../controllers/renderController';
 import '../css/todo.css';
 
 export default class TodoEle {
     constructor(todo) {
-        this.screenController = new ScreenController();
         this.modalHelper = new ModalHelper();
         this.todoEle = document.createElement("div");
         this.todoEle.setAttribute("id", todo.id);
@@ -48,7 +48,7 @@ export default class TodoEle {
 
         const todoProjectEle = document.createElement("div");
         todoProjectEle.classList.add("todo-project");
-        todoProjectEle.textContent = this.screenController.getProjectById(this.todo.project).title;
+        todoProjectEle.textContent = ScreenController.getProjectById(this.todo.project).title;
 
         const todoPriorityEle = document.createElement("div");
         todoPriorityEle.classList.add("todo-priority");
@@ -75,7 +75,7 @@ export default class TodoEle {
         this.bindEvents();
         this.todoEle.append(todoInfoEle, todoDescriptionEle);
 
-        this.screenController.addTodoToScreen(this.todoEle);
+        Renderer.addTodoToScreen(this.todoEle);
     }
 
     bindEvents() {
@@ -91,11 +91,11 @@ export default class TodoEle {
         const checkboxEle = this.getChildElement(this.todoEle, '.todo-checkbox');
         const titleEle = this.getChildElement(this.todoEle, '.todo-title');
         if (checkboxEle.checked) {
-            this.screenController.updateTodo({ ...this.todo, isCompleted: true });
+            ScreenController.updateTodo({ ...this.todo, isCompleted: true });
             titleEle.style.textDecoration = "line-through";
         }
         else {
-            this.screenController.updateTodo({ ...this.todo, isCompleted: false });
+            ScreenController.updateTodo({ ...this.todo, isCompleted: false });
             titleEle.style.textDecoration = "none";
         }
     }

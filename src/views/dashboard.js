@@ -7,7 +7,6 @@ export default class Dashboard {
         this.createTodoBtn = document.querySelector(".create-todo-btn");
         this.addTodoDialog = document.querySelector(".add-todo-modal");
         this.modalHelper = new ModalHelper();
-        this.screenController = new ScreenController();
         this.bindEvents();
     }
 
