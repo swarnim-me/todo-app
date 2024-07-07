@@ -1,9 +1,11 @@
 import '../css/dashboard.css';
+import ScreenController from '../controllers/screenController';
 
 export default class Dashboard {
     constructor() {
         this.createTodoBtn = document.querySelector(".create-todo-btn");
         this.addTodoDialog = document.querySelector(".add-todo-modal");
+        this.screenController = new ScreenController();
         this.bindEvents();
     }
 
@@ -12,6 +14,6 @@ export default class Dashboard {
     }
 
     showAddTodoDialog = () => {
-        this.addTodoDialog.showModal();
+        this.modalHelper.showAddTodoModal();
     }
 }

@@ -1,10 +1,12 @@
 import ScreenController from "../controllers/screenController";
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
+import ModalHelper from "../utils/modalHelper";
 
 export default class TodoEle {
     constructor(todo) {
         this.screenController = new ScreenController();
+        this.modalHelper = new ModalHelper();
         this.todoEle = document.createElement("div");
         this.todoEle.setAttribute("id", todo.id);
         this.todoEle.classList.add("todo");
@@ -45,7 +47,7 @@ export default class TodoEle {
 
         const todoProjectEle = document.createElement("div");
         todoProjectEle.classList.add("todo-project");
-        todoProjectEle.textContent = this.todo.project;
+        todoProjectEle.textContent = this.screenController.getProjectById(this.todo.project).title;
 
         const todoPriorityEle = document.createElement("div");
         todoPriorityEle.classList.add("todo-priority");
@@ -80,7 +82,7 @@ export default class TodoEle {
     }
 
     editTodo = () => {
-        this.screenController.editTodo(this.todo);
+        this.modalHelper.showEditTodoModal(this.todo);
     }
 
     toggleComplete = (event) => {

@@ -18,19 +18,17 @@ export default class PageLoader {
         this.screenController = new ScreenController();
         const dbData = this.dbHelper.getDbItems();
         dbData.todos.forEach(todo => {
-            new TodoEle({ ...todo, project: this.dbHelper.getProjectById(todo.project).title });
+            new TodoEle(todo);
         })
 
         dbData.projects.forEach(project => {
             new ProjectEle(project);
         })
 
-        new AddTodoModal(this.dbHelper.getAllProjects());
         new AddProjectModal();
         new Navbar();
         new Dashboard();
         new LoadCommonEvents();
-
         // Loading sample date
         // TODO: Remove this after testing
         // this.dbHelper.setDbItems(data);

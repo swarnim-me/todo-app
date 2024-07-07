@@ -4,7 +4,6 @@ import Project from '../models/project';
 import ProjectEle from '../views/project';
 import TodoEle from '../views/todo';
 import ProjectsHelper from '../utils/projectsHelper';
-import AddTodoModal from '../views/addTodoModal';
 
 export default class ScreenController {
     constructor() {
@@ -15,10 +14,17 @@ export default class ScreenController {
     }
 
     addTodo = (todo) => {
-        const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
-        this.dbHelper.addTodo(newTodo);
+        // If todo already has an id, then edit case
+        if (todo.id != null) {
+            // Edit logic
+            this.dbHelper.updateTodo(todo);
+        }
+        else {
+            const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
+            this.dbHelper.addTodo(newTodo);
+            new TodoEle(newTodo);
+        }
         // Mapping Project ID before creating Todo Element
-        new TodoEle({ ...newTodo, project: this.dbHelper.getProjectById(Number(newTodo.project)).title });
     }
 
     addProject = (project) => {
@@ -29,18 +35,19 @@ export default class ScreenController {
 
     }
 
-    editTodo(todo) {
-        console.log(todo);
-        this.addTodoModal = new AddTodoModal(this.dbHelper.getAllProjects(), this.dbHelper.getTodoById(todo.id));
-        this.addTodoModal.showModal();
-    }
-
-
     addTodoToScreen(todoEle) {
         this.todosWrapperEle.appendChild(todoEle);
     }
 
     addProjectToScreen(projectEle) {
         this.projectSideBarEle.appendChild(projectEle);
+    }
+
+    getProjectById(id) {
+        return this.dbHelper.getProjectById(id);
+    }
+
+    getAllProjects() {
+        return this.dbHelper.getAllProjects();
     }
 }

@@ -2,11 +2,10 @@ import ScreenController from '../controllers/screenController';
 import '../css/addTodoModal.css';
 import Formatter from '../utils/formatter';
 
-export default class AddTodoDialog {
-    constructor(projects, todo = {}) {
-        this.todo = todo;
-        this.screenController = new ScreenController()
-        this.projects = projects;
+class AddTodoDialog {
+    constructor() {
+        this.screenController = new ScreenController();
+        this.projects = this.screenController.getAllProjects();
         this.addTodoForm = document.querySelector(".add-todo-form")
         this.addTodoModal = document.querySelector(".add-todo-modal");
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
@@ -17,21 +16,19 @@ export default class AddTodoDialog {
         this.todoProject = document.querySelector("#project-input");
         this.bindEvents();
         this.setupProjectsDropdown();
-        if (Object.keys(this.todo).length !== 0) this.setupEditModal();
     }
 
     bindEvents = () => {
         this.submitTodoBtn.addEventListener("click", this.addTodoToDb);
     }
 
-    setupEditModal() {
-        console.log(this.todoPriority);
-        console.log(this.todo.priority);
-        this.todoTitle.value = this.todo.title;
-        this.todoDueDate.value = this.todo.dueDate;
-        this.todoPriority.forEach(priority => { if (priority.value === this.todo.priority) priority.checked = true });
-        this.todoNotes.value = this.todo.notes;
-        this.todoProject.value = Number(this.todo.project);
+    setupEditModal(todo) {
+        this.todo = todo;
+        this.todoTitle.value = todo.title;
+        this.todoDueDate.value = todo.dueDate;
+        this.todoPriority.forEach(priority => { if (priority.value === todo.priority) priority.checked = true });
+        this.todoNotes.value = todo.notes;
+        this.todoProject.value = Number(todo.project);
     }
 
     setupProjectsDropdown() {
@@ -46,6 +43,7 @@ export default class AddTodoDialog {
     }
 
     addTodoToDb = (event) => {
+        console.log(this.todo);
         // Get priority from radio buttons
         let todoPriority;
         this.todoPriority.forEach(priority => {
@@ -53,18 +51,20 @@ export default class AddTodoDialog {
                 todoPriority = priority.value;
             }
         })
+
         event.preventDefault();
         const checkStatus = this.addTodoForm.checkValidity();
         this.addTodoForm.reportValidity();
         if (checkStatus) {
             const newTodo = {
+                id: this.todo.id ?? null,
                 title: this.todoTitle.value,
                 dueDate: this.todoDueDate.value,
                 priority: todoPriority,
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
             };
-            this.screenController.addTodo(newTodo);
+            new ScreenController().addTodo(newTodo);
             this.clearInputs();
             this.addTodoModal.close();
         }
@@ -78,3 +78,5 @@ export default class AddTodoDialog {
         this.addTodoModal.showModal();
     }
 }
+
+export default new AddTodoDialog();
