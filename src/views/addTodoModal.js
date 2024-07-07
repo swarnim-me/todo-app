@@ -1,10 +1,10 @@
-import DatabaseController from '../controllers/databaseController';
+import databaseController from '../controllers/databaseController';
 import '../css/addTodoModal.css';
 import Formatter from '../utils/formatter';
 
 class AddTodoDialog {
     constructor() {
-        this.projects = DatabaseController.getAllProjects();
+        this.projects = databaseController.getAllProjects();
         this.addTodoForm = document.querySelector(".add-todo-form")
         this.addTodoModal = document.querySelector(".add-todo-modal");
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
@@ -63,7 +63,7 @@ class AddTodoDialog {
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
             };
-            DatabaseController.addTodo(newTodo);
+            databaseController.addTodo(newTodo);
             this.clearInputs();
             this.addTodoModal.close();
             delete this.todo;

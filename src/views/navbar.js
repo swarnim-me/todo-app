@@ -1,4 +1,5 @@
 import '../css/nav.css';
+import manageProjectsModal from './manageProjectsModal';
 
 export default class Navbar {
     constructor() {
@@ -7,6 +8,7 @@ export default class Navbar {
         this.menuOpenBtn = document.querySelector(".menu-open-btn");
         this.addProjectBtn = document.querySelector(".create-project-btn");
         this.addProjectModal = document.querySelector(".add-project-modal");
+        this.viewProjectsBtn = document.querySelector(".view-projects-btn");
         this.bindEvents();
     }
 
@@ -14,6 +16,11 @@ export default class Navbar {
         this.menuCloseBtn.addEventListener("click", this.toggleMenu);
         this.menuOpenBtn.addEventListener("click", this.toggleMenu);
         this.addProjectBtn.addEventListener("click", this.showAddProjectModal);
+        this.viewProjectsBtn.addEventListener("click", this.showViewProjectsModal);
+    }
+
+    showViewProjectsModal = () => {
+        manageProjectsModal.showModal();
     }
 
     toggleMenu = () => {

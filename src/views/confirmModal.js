@@ -1,4 +1,4 @@
-import DatabaseController from '../controllers/databaseController';
+import databaseController from '../controllers/databaseController';
 import '../css/confirmDeleteModal.css';
 
 class ConfirmDeleteModal {
@@ -21,7 +21,7 @@ class ConfirmDeleteModal {
 
     deleteTodo = () => {
         if (this.todo) {
-            DatabaseController.deleteTodo(this.todo);
+            databaseController.deleteTodo(this.todo);
             this.confirmModal.close();
         }
     }

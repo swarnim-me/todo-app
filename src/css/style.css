@@ -72,6 +72,7 @@ dialog {
     padding: 40px;
     width: min(90%, 500px);
     border-radius: 8px;
+    outline: none;
 }
 
 dialog::backdrop {

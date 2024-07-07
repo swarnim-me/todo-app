@@ -1,0 +1,15 @@
+.manage-projects-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 20px;
+    border-bottom: 2px solid var(--nav-clr);
+}
+
+.manage-project-utility-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.manage-project-utility-btns * {
+    cursor: pointer;
+}

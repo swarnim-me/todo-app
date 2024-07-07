@@ -1,4 +1,4 @@
-import DatabaseController from '../controllers/databaseController';
+import databaseController from '../controllers/databaseController';
 import '../css/addProjectModal.css';
 
 class AddProjectModal {
@@ -22,7 +22,7 @@ class AddProjectModal {
             const newProject = {
                 title: this.projectTitleInputEle.value,
             };
-            DatabaseController.addProject(newProject);
+            databaseController.addProject(newProject);
             this.clearInputs();
             this.addProjectModal.close();
         }

@@ -1,7 +1,7 @@
 import DbHelper from '../models/dbHelper';
 import Todo from '../models/todo';
 import Project from '../models/project';
-import Renderer from './renderController';
+import renderer from './renderController';
 
 class DatabaseController {
     constructor() {
@@ -13,12 +13,12 @@ class DatabaseController {
         if (todo.id != null) {
             // Edit logic
             this.dbHelper.updateTodo(todo);
-            Renderer.refreshAllTodos(this.dbHelper.getAllTodos());
+            renderer.refreshAllTodos(this.dbHelper.getAllTodos());
         }
         else {
             const newTodo = new Todo({ ...todo, id: this.dbHelper.getNextTodoId() });
             this.dbHelper.addTodo(newTodo);
-            Renderer.createTodo(newTodo);
+            renderer.createTodo(newTodo);
         }
         // Mapping Project ID before creating Todo Element
     }
@@ -26,12 +26,12 @@ class DatabaseController {
     addProject = (project) => {
         const newProject = new Project({ ...project, id: this.dbHelper.getNextProjectId() });
         this.dbHelper.addProject(newProject);
-        Renderer.createProject(newProject);
+        renderer.createProject(newProject);
     }
 
     deleteTodo = (todo) => {
         this.dbHelper.deleteTodo(todo);
-        Renderer.refreshAllTodos(this.dbHelper.getAllTodos());
+        renderer.refreshAllTodos(this.dbHelper.getAllTodos());
     }
 
     getProjectById(id) {

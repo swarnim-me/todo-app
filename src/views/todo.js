@@ -1,14 +1,13 @@
-import DatabaseController from "../controllers/databaseController";
+import databaseController from "../controllers/databaseController";
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
-import ModalHelper from "../utils/modalHelper";
-import Renderer from '../controllers/renderController';
-import ConfirmDeleteModal from '../views/confirmModal';
+import modalHelper from "../utils/modalHelper";
+import renderer from '../controllers/renderController';
+import confirmDeleteModal from '../views/confirmModal';
 import '../css/todo.css';
 
 export default class TodoEle {
     constructor(todo) {
-        this.modalHelper = new ModalHelper();
         this.todoEle = document.createElement("div");
         this.todoEle.setAttribute("id", todo.id);
         this.todoEle.classList.add("todo");
@@ -49,7 +48,7 @@ export default class TodoEle {
 
         const todoProjectEle = document.createElement("div");
         todoProjectEle.classList.add("todo-project");
-        todoProjectEle.textContent = DatabaseController.getProjectById(this.todo.project).title;
+        todoProjectEle.textContent = databaseController.getProjectById(this.todo.project).title;
 
         const todoPriorityEle = document.createElement("div");
         todoPriorityEle.classList.add("todo-priority");
@@ -77,7 +76,7 @@ export default class TodoEle {
         this.bindEvents();
         this.todoEle.append(todoInfoEle, todoDescriptionEle);
 
-        Renderer.addTodoToScreen(this.todoEle);
+        renderer.addTodoToScreen(this.todoEle);
     }
 
     bindEvents() {
@@ -86,12 +85,12 @@ export default class TodoEle {
 
     editTodo = (event) => {
         event.stopPropagation();
-        this.modalHelper.showEditTodoModal(this.todo);
+        modalHelper.showEditTodoModal(this.todo);
     }
 
     showDeleteModal = (event) => {
         event.stopPropagation();
-        ConfirmDeleteModal.registerTodo(this.todo);
+        confirmDeleteModal.registerTodo(this.todo);
     }
 
     toggleComplete = (event) => {
@@ -99,11 +98,11 @@ export default class TodoEle {
         const checkboxEle = this.getChildElement(this.todoEle, '.todo-checkbox');
         const titleEle = this.getChildElement(this.todoEle, '.todo-title');
         if (checkboxEle.checked) {
-            DatabaseController.updateTodo({ ...this.todo, isCompleted: true });
+            databaseController.updateTodo({ ...this.todo, isCompleted: true });
             titleEle.style.textDecoration = "line-through";
         }
         else {
-            DatabaseController.updateTodo({ ...this.todo, isCompleted: false });
+            databaseController.updateTodo({ ...this.todo, isCompleted: false });
             titleEle.style.textDecoration = "none";
         }
     }
