@@ -1,4 +1,4 @@
-import Renderer from "../controllers/renderController";
+import renderer from "../controllers/renderController";
 
 export default class ProjectEle {
     constructor(project) {
@@ -11,6 +11,6 @@ export default class ProjectEle {
         this.projectEle.classList.add("project-list-item");
         this.projectEle.setAttribute("id", this.project.id);
         this.projectEle.textContent = this.project.title;
-        Renderer.addProjectToScreen(this.projectEle);
+        renderer.addProjectToScreen(this.projectEle);
     }
 }

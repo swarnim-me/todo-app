@@ -19,8 +19,14 @@ class ApplicationController {
     }
 
     addProject = (project) => {
-        const newProject = databaseController.addProject(project);
-        renderController.createProject(newProject);
+        if (project.id != null) {
+            databaseController.updateProject(project);
+        }
+        else {
+            const newProject = databaseController.addProject(project);
+            renderController.createProject(newProject);
+        }
+        renderController.refreshAllProjects(databaseController.getAllProjects());
     }
 
     deleteTodo = (todo) => {

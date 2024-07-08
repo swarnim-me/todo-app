@@ -3,6 +3,7 @@ import databaseController from '../controllers/databaseController';
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import Formatter from '../utils/formatter';
+import applicationController from '../controllers/applicationController';
 
 class ManageProjectsModal {
     constructor() {
@@ -16,6 +17,7 @@ class ManageProjectsModal {
     }
 
     setupProjects(projects = databaseController.getAllProjects()) {
+        this.projectsList.innerHTML = "";
         projects.forEach(project => this.addProject(project));
     }
 
@@ -34,16 +36,26 @@ class ManageProjectsModal {
         editIconEle.classList.add("icon", "manage-project-edit");
         editIconEle.setAttribute("src", editIcon);
         editIconEle.setAttribute("alt", "Edit Project");
+        editIconEle.addEventListener("click", () => this.editProject(project));
 
         const deleteIconEle = document.createElement("img");
         deleteIconEle.classList.add("icon", "manage-project-delete");
         deleteIconEle.setAttribute("src", deleteIcon);
         deleteIconEle.setAttribute("alt", "Delete Project");
+        deleteIconEle.addEventListener("click", () => this.deleteProject(project));
 
         utilityBtnsWrapper.append(editIconEle, deleteIconEle);
         newProjectEle.append(projectTitleEle, utilityBtnsWrapper);
 
         this.projectsList.appendChild(newProjectEle);
+    }
+
+    editProject = (project) => {
+        applicationController.addProject(project);
+    }
+
+    deleteProject = () => {
+        applicationController.deleteProject(project);
     }
 }
 

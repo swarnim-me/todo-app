@@ -61,6 +61,16 @@ export default class DbHelper {
         this.setDbItems(activeDb);
     }
 
+    updateProject = (project) => {
+        const activeDb = this.getDbItems();
+        activeDb.projects.forEach((oldProject, index) => {
+            if (project.id === oldProject.id) {
+                activeDb.projects[index] = { ...oldProject, ...project };
+            }
+        })
+        this.setDbItems(activeDb);
+    }
+
     getNextTodoId = () => {
         return this.getDbItems().nextTodoId;
     }

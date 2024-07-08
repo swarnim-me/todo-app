@@ -5,7 +5,6 @@ import Formatter from '../utils/formatter';
 
 class AddTodoDialog {
     constructor() {
-        this.projects = databaseController.getAllProjects();
         this.addTodoForm = document.querySelector(".add-todo-form")
         this.addTodoModal = document.querySelector(".add-todo-modal");
         this.submitTodoBtn = document.querySelector(".submit-todo-btn");
@@ -31,14 +30,10 @@ class AddTodoDialog {
         this.todoProject.value = Number(todo.project);
     }
 
-    setupProjectsDropdown() {
+    setupProjectsDropdown(projects = databaseController.getAllProjects()) {
         this.todoProject.innerHTML = "";
-        this.projects.forEach(project => {
-            const newOption = document.createElement("option");
-            newOption.setAttribute("value", project.id);
-            // Capitalising first letter in the dropdown
-            newOption.textContent = Formatter.capitalize(project.title);
-            this.todoProject.append(newOption);
+        projects.forEach(project => {
+            this.addProjectToDropdown(project);
         })
     }
 

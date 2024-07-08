@@ -23,6 +23,10 @@ class DatabaseController {
         this.dbHelper.updateTodo(todo);
     }
 
+    updateProject = (project) => {
+        this.dbHelper.updateProject(project);
+    }
+
     deleteTodo = (todo) => {
         this.dbHelper.deleteTodo(todo);
     }

@@ -10,16 +10,24 @@ class Renderer {
         this.projectSideBarEle = document.querySelector(".project-list");
     }
 
-    updateProjects(project) {
-        addTodoModal.addProjectToDropdown(project);
-        manageProjectsModal.addProject(project);
+    updateProjects(projects) {
+        addTodoModal.setupProjectsDropdown(projects);
+        manageProjectsModal.setupProjects(projects);
     }
 
     refreshAllTodos(todos) {
         this.todosWrapperEle.innerHTML = "";
         todos.forEach(todo => {
-            new TodoEle(todo);
+            this.createTodo(todo);
         });
+    }
+
+    refreshAllProjects(projects) {
+        this.projectSideBarEle.innerHTML = "";
+        projects.forEach(project => {
+            this.createProject(project);
+        });
+        this.updateProjects(projects); // Update dropdown of Add Todo Modal
     }
 
     addTodoToScreen(todoEle) {
@@ -36,7 +44,6 @@ class Renderer {
 
     createProject(project) {
         new ProjectEle(project);
-        this.updateProjects(project); // Update dropdown of Add Todo Modal
     }
 }
 
