@@ -1,3 +1,4 @@
+import applicationController from '../controllers/applicationController';
 import databaseController from '../controllers/databaseController';
 import '../css/addTodoModal.css';
 import Formatter from '../utils/formatter';
@@ -63,7 +64,7 @@ class AddTodoDialog {
                 notes: this.todoNotes.value,
                 project: this.todoProject.value,
             };
-            databaseController.addTodo(newTodo);
+            applicationController.addTodo(newTodo);
             this.clearInputs();
             this.addTodoModal.close();
             delete this.todo;
@@ -76,6 +77,13 @@ class AddTodoDialog {
 
     showModal() {
         this.addTodoModal.showModal();
+    }
+
+    addProjectToDropdown(project) {
+        const newProjectEle = document.createElement("option");
+        newProjectEle.setAttribute("value", project.id);
+        newProjectEle.textContent = Formatter.capitalize(project.title);
+        this.todoProject.appendChild(newProjectEle);
     }
 }
 

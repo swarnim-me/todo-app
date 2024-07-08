@@ -1,6 +1,7 @@
-import Formatter from "../utils/formatter";
 import TodoEle from "../views/todo";
 import ProjectEle from "../views/project";
+import manageProjectsModal from "../views/manageProjectsModal";
+import addTodoModal from "../views/addTodoModal";
 
 class Renderer {
     constructor() {
@@ -10,10 +11,8 @@ class Renderer {
     }
 
     updateProjects(project) {
-        const newProjectEle = document.createElement("option");
-        newProjectEle.setAttribute("value", project.id);
-        newProjectEle.textContent = Formatter.capitalize(project.title);
-        this.projectsDropdownEle.appendChild(newProjectEle);
+        addTodoModal.addProjectToDropdown(project);
+        manageProjectsModal.addProject(project);
     }
 
     refreshAllTodos(todos) {

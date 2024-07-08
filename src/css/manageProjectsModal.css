@@ -5,6 +5,10 @@
     border-bottom: 2px solid var(--nav-clr);
 }
 
+.manage-projects-list-item:last-child {
+    border-bottom: none;
+}
+
 .manage-project-utility-btns {
     display: flex;
     gap: 20px;
