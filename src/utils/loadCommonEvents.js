@@ -12,6 +12,8 @@ class LoadCommonEvents {
 
     closeDialog() {
         this.parentElement.close();
+        const form = this.parentElement.querySelector("form");
+        form?.reset();
     }
 }
 

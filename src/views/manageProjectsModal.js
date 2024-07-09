@@ -4,6 +4,7 @@ import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import Formatter from '../utils/formatter';
 import applicationController from '../controllers/applicationController';
+import addProjectModal from './addProjectModal';
 
 class ManageProjectsModal {
     constructor() {
@@ -51,7 +52,10 @@ class ManageProjectsModal {
     }
 
     editProject = (project) => {
-        applicationController.addProject(project);
+        // This will be done by the addProjectModal
+        addProjectModal.registerProject(project);
+        addProjectModal.showModal();
+        // applicationController.addProject(project);
     }
 
     deleteProject = () => {
