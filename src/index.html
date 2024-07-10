@@ -13,14 +13,19 @@
             <img class="icon menu-close-btn" src="./assets/icons/hamburger.svg" alt="Menu Toggle Button">
             <h1 class="app-title">Taskbook</h1>
             <ul class="nav-items">
-                <li class="nav-item"><img class="icon" src="./assets/icons/inbox.svg" alt="Inbox">Inbox</li>
-                <li class="nav-item"><img class="icon" src="./assets/icons/sun.svg" alt="Today">Today</li>
-                <li class="nav-item"><img class="icon" src="./assets/icons/calendar.svg" alt="Week">Week</li>
+                <li class="nav-item" data-item-id="inbox"><img class="icon" src="./assets/icons/inbox.svg"
+                        alt="Inbox">Inbox</li>
+                <li class="nav-item" data-item-id="all"><img class="icon" src="./assets/icons/stack.svg" alt="All">All
+                </li>
+                <li class="nav-item" data-item-id="today"><img class="icon" src="./assets/icons/sun.svg"
+                        alt="Today">Today</li>
+                <li class="nav-item" data-item-id="week"><img class="icon" src="./assets/icons/calendar.svg"
+                        alt="Week">Week</li>
                 <li class="nav-item view-projects-btn"><img class="icon" src="./assets/icons/box.svg"
                         alt="projects">Projects</li>
                 <ul>
-                    <div class="project-list">
-                    </div>
+                    <ul class="project-list">
+                    </ul>
                     <li class="project-list-item create-project-btn">Create New Project</li>
                 </ul>
             </ul>
@@ -59,9 +64,6 @@
             <div class="form-control">
                 <label for="project-input">Project</label>
                 <select name="project-input" id="project-input" class="dialog-input" required>
-                    <option value="life">Life</option>
-                    <option value="health">Health</option>
-                    <option value="relationship">Relationship</option>
                 </select>
             </div>
             <div class="form-control">

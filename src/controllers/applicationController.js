@@ -39,6 +39,10 @@ class ApplicationController {
         renderController.refreshAllProjects(databaseController.getAllProjects());
         renderController.refreshAllTodos(databaseController.getAllTodos());
     }
+
+    changeTab = (tab) => {
+        // TODO: Add logic for tab change
+    }
 }
 
 export default new ApplicationController();

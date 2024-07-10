@@ -1,3 +1,4 @@
+import applicationController from '../controllers/applicationController';
 import '../css/nav.css';
 import manageProjectsModal from './manageProjectsModal';
 
@@ -9,6 +10,7 @@ export default class Navbar {
         this.addProjectBtn = document.querySelector(".create-project-btn");
         this.addProjectModal = document.querySelector(".add-project-modal");
         this.viewProjectsBtn = document.querySelector(".view-projects-btn");
+        this.navBtns = Array.from(document.querySelectorAll(".nav-item"))
         this.bindEvents();
     }
 
@@ -17,6 +19,14 @@ export default class Navbar {
         this.menuOpenBtn.addEventListener("click", this.toggleMenu);
         this.addProjectBtn.addEventListener("click", this.showAddProjectModal);
         this.viewProjectsBtn.addEventListener("click", this.showViewProjectsModal);
+        this.navBtns.forEach(navBtn => {
+            navBtn.addEventListener("click", this.changeTab);
+        })
+    }
+
+    changeTab(event) {
+        console.log(event.target.dataset.itemId);
+        applicationController.changeTab(event.target.dataset.itemId);
     }
 
     showViewProjectsModal = () => {
