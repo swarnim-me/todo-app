@@ -16,7 +16,7 @@
     background: var(--high-priority);
 }
 
-.confirm-modal-type {
+.confirm-modal-title {
     font-style: italic;
     font-family: 'Roboto-Light';
 }

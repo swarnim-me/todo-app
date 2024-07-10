@@ -6,7 +6,8 @@ class ConfirmDeleteModal {
         this.confirmModal = document.querySelector(".confirm-delete-modal");
         this.confirmBtn = document.querySelector(".confirm-delete-btn");
         this.cancelBtn = document.querySelector(".confirm-cancel-btn");
-        this.modalTitle = document.querySelector(".confirm-modal-type");
+        this.modalType = document.querySelector(".confirm-modal-type");
+        this.modalTitle = document.querySelector(".confirm-modal-title");
         this.bindEvents();
     }
 
@@ -18,12 +19,14 @@ class ConfirmDeleteModal {
     registerTodo = (todo) => {
         this.todo = todo;
         this.modalTitle.textContent = todo.title;
+        this.modalType.textContent = "todo";
         this.confirmModal.showModal();
     }
 
     registerProject = (project) => {
         this.project = project;
         this.modalTitle.textContent = project.title;
+        this.modalType.textContent = "project";
         this.confirmModal.showModal();
     }
 
