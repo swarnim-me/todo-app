@@ -31,6 +31,10 @@ class DatabaseController {
         this.dbHelper.deleteTodo(todo);
     }
 
+    deleteProject = (project) => {
+        this.dbHelper.deleteProject(project);
+    }
+
     getProjectById(id) {
         return this.dbHelper.getProjectById(id);
     }

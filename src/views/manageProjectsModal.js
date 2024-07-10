@@ -3,8 +3,8 @@ import databaseController from '../controllers/databaseController';
 import editIcon from '../assets/icons/pencil.svg';
 import deleteIcon from '../assets/icons/delete.svg';
 import Formatter from '../utils/formatter';
-import applicationController from '../controllers/applicationController';
 import addProjectModal from './addProjectModal';
+import confirmModal from './confirmModal';
 
 class ManageProjectsModal {
     constructor() {
@@ -23,6 +23,7 @@ class ManageProjectsModal {
     }
 
     addProject(project) {
+        if (project.id === 0) return;
         const newProjectEle = document.createElement("li");
         newProjectEle.classList.add("manage-projects-list-item");
 
@@ -58,8 +59,8 @@ class ManageProjectsModal {
         // applicationController.addProject(project);
     }
 
-    deleteProject = () => {
-        applicationController.deleteProject(project);
+    deleteProject = (project) => {
+        confirmModal.registerProject(project);
     }
 }
 

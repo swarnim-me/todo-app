@@ -33,6 +33,12 @@ class ApplicationController {
         databaseController.deleteTodo(todo);
         renderController.refreshAllTodos(databaseController.getAllTodos());
     }
+
+    deleteProject = (project) => {
+        databaseController.deleteProject(project);
+        renderController.refreshAllProjects(databaseController.getAllProjects());
+        renderController.refreshAllTodos(databaseController.getAllTodos());
+    }
 }
 
 export default new ApplicationController();

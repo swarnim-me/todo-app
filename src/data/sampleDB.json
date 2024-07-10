@@ -2,28 +2,24 @@
     "projects": [
         {
             "id": 0,
-            "title": "inbox"
+            "title": "Inbox"
         },
         {
             "id": 1,
-            "title": "relationship"
-        },
-        {
-            "id": 2,
-            "title": "coding"
+            "title": "Another"
         }
     ],
     "todos": [
         {
             "id": 0,
-            "title": "Sample Todo",
-            "notes": "This is a sample todo",
-            "priority": "low",
-            "dueDate": "20-7-2024",
-            "project": 2,
+            "title": "asdfasdf",
+            "dueDate": "2024-07-17",
+            "priority": "high",
+            "notes": "asdfasdf",
+            "project": "1",
             "isCompleted": false
         }
     ],
     "nextTodoId": 1,
-    "nextProjectId": 3
+    "nextProjectId": 2
 }

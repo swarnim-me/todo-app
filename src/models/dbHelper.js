@@ -84,5 +84,22 @@ export default class DbHelper {
         const updatedDb = { ...activeDb, todos: activeDb.todos.filter(dbTodo => dbTodo.id !== todo.id) };
         this.setDbItems(updatedDb);
     }
+
+    deleteProject = (project) => {
+        const activeDb = this.getDbItems();
+        let updatedDb = {
+            ...activeDb,
+            projects: activeDb.projects.filter(dbProject => dbProject.id !== project.id),
+            // Setting up all the todos with deleted project to 0 (Inbox)
+            todos: activeDb.todos.map((todo) => {
+                if (parseInt(todo.project) === project.id) {
+                    return { ...todo, project: 0 };
+                }
+                return todo;
+            })
+        };
+        console.log(updatedDb);
+        this.setDbItems(updatedDb);
+    }
     // TODO: Write Update Todo, Delete Todo, Delete Project methods
 }
