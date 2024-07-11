@@ -8,7 +8,7 @@ class ApplicationController {
 
     registerTab = (tab) => {
         this.tab = tab;
-        renderController.refreshAllTodos(databaseController.getTodosByTab(tab));
+        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
     }
 
     addTodo = (todo) => {
@@ -20,7 +20,7 @@ class ApplicationController {
             const newTodo = databaseController.addTodo(todo);
             renderController.createTodo(newTodo);
         }
-        renderController.refreshAllTodos(databaseController.getAllTodos());
+        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
     }
 
     addProject = (project) => {
@@ -36,17 +36,13 @@ class ApplicationController {
 
     deleteTodo = (todo) => {
         databaseController.deleteTodo(todo);
-        renderController.refreshAllTodos(databaseController.getAllTodos());
+        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
     }
 
     deleteProject = (project) => {
         databaseController.deleteProject(project);
         renderController.refreshAllProjects(databaseController.getAllProjects());
-        renderController.refreshAllTodos(databaseController.getAllTodos());
-    }
-
-    changeTab = (tab) => {
-        // TODO: Add logic for tab change
+        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
     }
 }
 
