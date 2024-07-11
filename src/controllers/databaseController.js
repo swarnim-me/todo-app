@@ -1,6 +1,7 @@
 import DbHelper from '../models/dbHelper';
 import Todo from '../models/todo';
 import Project from '../models/project';
+import dateHelper from '../utils/dateHelper';
 
 class DatabaseController {
     constructor() {
@@ -45,6 +46,23 @@ class DatabaseController {
 
     getAllTodos() {
         return this.dbHelper.getAllTodos();
+    }
+
+    getTodosByTab(tab) {
+        const todayDate = new Date();
+        let output = this.getAllTodos();
+        switch (tab) {
+            case "inbox": return output.filter(todo => {
+                return Number(todo.project) === 0;
+            })
+            case "today": return output.filter(todo => {
+                return dateHelper.compareToday(todo.dueDate)
+            })
+            case "week": return output.filter(todo => {
+                return dateHelper.isTodoInUpcomingWeek(todo.dueDate);
+            })
+        }
+        return output;
     }
 }
 

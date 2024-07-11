@@ -3,7 +3,12 @@ import renderController from "./renderController";
 
 class ApplicationController {
     constructor() {
+        this.tab = "all";
+    }
 
+    registerTab = (tab) => {
+        this.tab = tab;
+        renderController.refreshAllTodos(databaseController.getTodosByTab(tab));
     }
 
     addTodo = (todo) => {
