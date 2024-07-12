@@ -64,6 +64,19 @@ nav {
     cursor: pointer;
 }
 
+.active {
+    background: var(--primary-clr);
+    color: #fff;
+}
+
+.active:hover {
+    background-color: var(--primary-clr);
+}
+
+.active .icon {
+    filter: brightness(1000);
+}
+
 @media(max-width: 600px) {
     nav {
         position: absolute;

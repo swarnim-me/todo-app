@@ -1,4 +1,5 @@
-import renderer from "../controllers/renderController";
+import applicationController from "../controllers/applicationController";
+import renderController from "../controllers/renderController";
 
 export default class ProjectEle {
     constructor(project) {
@@ -9,8 +10,14 @@ export default class ProjectEle {
 
     createProject() {
         this.projectEle.classList.add("project-list-item");
-        this.projectEle.setAttribute("id", this.project.id);
+        this.projectEle.setAttribute("data-id", this.project.id);
         this.projectEle.textContent = this.project.title;
-        renderer.addProjectToScreen(this.projectEle);
+        this.projectEle.addEventListener("click", this.showProjectTodos)
+        renderController.addProjectToScreen(this.projectEle);
     }
+
+    showProjectTodos = () => {
+        applicationController.registerTab(this.project.id, "project");
+    }
+
 }

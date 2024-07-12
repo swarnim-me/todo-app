@@ -6,8 +6,10 @@ class ApplicationController {
         this.tab = "all";
     }
 
-    registerTab = (tab) => {
+    registerTab = (tab, type = "project") => {
+        if (tab === "projects") return;
         this.tab = tab;
+        renderController.setActiveTab(tab, type);
         renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
     }
 

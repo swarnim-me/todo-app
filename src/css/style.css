@@ -9,6 +9,17 @@
     --high-priority: #FF6F6F;
 }
 
+
+.dark-mode {
+    --nav-clr: #202020;
+    --background-clr: #0f0f0f;
+    --font-clr: #fff;
+}
+
+.dark-mode .icon {
+    filter: brightness(1000);
+}
+
 @font-face {
     font-family: 'Roboto-Bold';
     src: url('../assets/fonts/Roboto-Bold.ttf');

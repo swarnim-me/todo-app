@@ -25,7 +25,7 @@ export default class Navbar {
     }
 
     changeTab(event) {
-        applicationController.registerTab(event.target.dataset.itemId);
+        applicationController.registerTab(event.target.dataset.itemId, "nav");
     }
 
     showViewProjectsModal = () => {

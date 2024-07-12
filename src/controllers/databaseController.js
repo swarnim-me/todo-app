@@ -49,9 +49,9 @@ class DatabaseController {
     }
 
     getTodosByTab(tab) {
-        const todayDate = new Date();
         let output = this.getAllTodos();
         switch (tab) {
+            case "all": return output;
             case "inbox": return output.filter(todo => {
                 return Number(todo.project) === 0;
             })
@@ -60,6 +60,9 @@ class DatabaseController {
             })
             case "week": return output.filter(todo => {
                 return dateHelper.isTodoInUpcomingWeek(todo.dueDate);
+            })
+            default: return output.filter(todo => {
+                return Number(todo.project) === Number(tab);
             })
         }
         return output;

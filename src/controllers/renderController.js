@@ -45,6 +45,35 @@ class Renderer {
     createProject(project) {
         new ProjectEle(project);
     }
+
+    setActiveTab(tab, type) {
+        this.navBtns = Array.from(document.querySelectorAll(".nav-item"));
+        this.projectItems = Array.from(document.querySelectorAll(".project-list-item"));
+        if (type === "project") {
+            this.projectItems.forEach(item => {
+                if (Number(item.dataset.id) === Number(tab)) {
+                    item.classList.add("active");
+                }
+                else {
+                    item.classList.remove("active");
+                }
+            })
+
+            this.navBtns.forEach(item => item.classList.remove("active"));
+        }
+        else if (type === "nav") {
+            this.navBtns.forEach(item => {
+                if ((item.dataset.itemId) === (tab)) {
+                    item.classList.add("active");
+                }
+                else {
+                    item.classList.remove("active");
+                }
+            })
+
+            this.projectItems.forEach(item => item.classList.remove("active"));
+        }
+    }
 }
 
 export default new Renderer();
