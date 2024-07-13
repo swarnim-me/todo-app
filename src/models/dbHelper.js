@@ -5,7 +5,8 @@ export default class DbHelper {
                 projects: [{ id: 0, title: "Inbox" }],
                 todos: [],
                 nextTodoId: 0,
-                nextProjectId: 1 // Default project is "Inbox"
+                nextProjectId: 1, // Default project is "Inbox"
+                theme: "light"
             }))
         }
     }
@@ -15,6 +16,10 @@ export default class DbHelper {
 
     setDbItems = (value) => {
         localStorage.setItem("data", JSON.stringify(value));
+    }
+
+    getTheme = () => {
+        return this.getDbItems().theme;
     }
 
     addTodo = (todo) => {
@@ -99,6 +104,12 @@ export default class DbHelper {
             })
         };
         console.log(updatedDb);
+        this.setDbItems(updatedDb);
+    }
+
+    setTheme(theme) {
+        const activeDb = this.getDbItems();
+        const updatedDb = { ...activeDb, theme: theme }
         this.setDbItems(updatedDb);
     }
     // TODO: Write Update Todo, Delete Todo, Delete Project methods

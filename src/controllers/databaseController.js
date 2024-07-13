@@ -85,6 +85,14 @@ class DatabaseController {
                 return todos.sort((todo1, todo2) => todo1.project - todo2.project);
         }
     }
+
+    setTheme(theme) {
+        this.dbHelper.setTheme(theme);
+    }
+
+    getTheme() {
+        return this.dbHelper.getTheme();
+    }
 }
 
 export default new DatabaseController();

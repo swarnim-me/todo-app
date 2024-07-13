@@ -8,7 +8,7 @@ class ApplicationController {
     }
 
     registerTab = (tab, type = "project") => {
-        if (tab === "projects") return;
+        if (tab === "ignore") return;
         this.tab = tab;
         renderController.setActiveTab(tab, type);
         this.refreshTodos();

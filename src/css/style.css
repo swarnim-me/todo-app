@@ -10,9 +10,27 @@
 }
 
 
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background-clr);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--nav-clr);
+}
+
+
 .dark-mode {
-    --nav-clr: #202020;
-    --background-clr: #0f0f0f;
+    --nav-clr: #0B0B10;
+    --hover-clr: #000000;
+    --background-clr: #1E1E25;
     --font-clr: #fff;
 }
 
@@ -84,6 +102,8 @@ dialog {
     width: min(90%, 500px);
     border-radius: 8px;
     outline: none;
+    background: var(--background-clr);
+    color: var(--font-clr);
 }
 
 dialog::backdrop {
@@ -98,6 +118,7 @@ dialog::backdrop {
     padding: 10px 10px;
     border-radius: 8px;
     font-family: "Roboto-Regular";
+    color: var(--font-clr);
 }
 
 .dialog-btn {
