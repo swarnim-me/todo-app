@@ -9,13 +9,14 @@ import data from '../data/sampleDB.json';
 
 // Bind common events
 import "../utils/loadCommonEvents";
+import applicationController from "./applicationController";
 
 export default class PageLoader {
     constructor() {
         this.dbHelper = new DbHelper();
         const dbData = this.dbHelper.getDbItems();
         dbData.todos.forEach(todo => {
-            new TodoEle(todo);
+            applicationController.addTodo(todo);
         })
 
         dbData.projects.forEach(project => {
