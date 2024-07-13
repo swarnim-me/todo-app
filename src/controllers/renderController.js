@@ -2,6 +2,7 @@ import TodoEle from "../views/todo";
 import ProjectEle from "../views/project";
 import manageProjectsModal from "../views/manageProjectsModal";
 import addTodoModal from "../views/addTodoModal";
+import sortinFilter from '../views/sortingFilter';
 
 class Renderer {
     constructor() {
@@ -73,6 +74,8 @@ class Renderer {
 
             this.projectItems.forEach(item => item.classList.remove("active"));
         }
+
+        sortinFilter.reset();
     }
 }
 

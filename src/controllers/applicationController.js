@@ -4,13 +4,14 @@ import renderController from "./renderController";
 class ApplicationController {
     constructor() {
         this.tab = "all";
+        this.sortBy = "none";
     }
 
     registerTab = (tab, type = "project") => {
         if (tab === "projects") return;
         this.tab = tab;
         renderController.setActiveTab(tab, type);
-        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
+        this.refreshTodos();
     }
 
     addTodo = (todo) => {
@@ -22,7 +23,7 @@ class ApplicationController {
             const newTodo = databaseController.addTodo(todo);
             renderController.createTodo(newTodo);
         }
-        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
+        this.refreshTodos();
     }
 
     addProject = (project) => {
@@ -38,13 +39,24 @@ class ApplicationController {
 
     deleteTodo = (todo) => {
         databaseController.deleteTodo(todo);
-        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
+        this.refreshTodos();
     }
 
     deleteProject = (project) => {
         databaseController.deleteProject(project);
         renderController.refreshAllProjects(databaseController.getAllProjects());
-        renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
+        this.refreshTodos();
+    }
+
+    sortTodos = (sortBy) => {
+        this.sortBy = sortBy;
+        this.refreshTodos();
+    }
+
+
+    refreshTodos() {
+        if (this.sortBy === "none") return renderController.refreshAllTodos(databaseController.getTodosByTab(this.tab));
+        renderController.refreshAllTodos(databaseController.getSortedTodos(this.sortBy, databaseController.getTodosByTab(this.tab)));
     }
 }
 

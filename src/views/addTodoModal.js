@@ -60,6 +60,7 @@ class AddTodoDialog {
                 project: this.todoProject.value,
             };
             applicationController.addTodo(newTodo);
+            this.addTodoForm.reset();
             this.addTodoModal.close();
             delete this.todo;
         }

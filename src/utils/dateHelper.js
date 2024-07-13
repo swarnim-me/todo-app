@@ -21,6 +21,12 @@ class DateHelper {
         return false;
     }
 
+    sortTodosByDate(todos) {
+        return todos.sort(function (todo1, todo2) {
+            console.log(todo1.dueDate, todo2.dueDate);
+            return compareAsc(todo1.dueDate, todo2.dueDate);
+        })
+    }
 
 }
 

@@ -67,6 +67,24 @@ class DatabaseController {
         }
         return output;
     }
+
+    getSortedTodos(sortBy, todos) {
+        switch (sortBy) {
+            case "priority":
+                return todos.sort(function (todo1, todo2) {
+                    const priorityMap = {
+                        "low": 0,
+                        "medium": 1,
+                        "high": 2
+                    };
+                    return priorityMap[todo2.priority] - priorityMap[todo1.priority];
+                })
+            case "date":
+                return dateHelper.sortTodosByDate(todos);
+            case "project":
+                return todos.sort((todo1, todo2) => todo1.project - todo2.project);
+        }
+    }
 }
 
 export default new DatabaseController();
