@@ -20,7 +20,7 @@
     font-size: 1rem;
     border: none;
     padding: 20px 12px;
-    color: white;
+    color: var(--font-clr);
 }
 
 .create-todo-input {
@@ -68,6 +68,15 @@
 small.tip {
     font-family: 'Roboto-Light';
     opacity: .7;
+}
+
+.quote {
+    color: var(--font-clr);
+    font-family: 'Roboto-Light';
+    opacity: .5;
+    text-align: center;
+    padding-top: 40px;
+    line-height: 40px;
 }
 
 @media(max-width: 600px) {

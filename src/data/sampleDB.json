@@ -7,19 +7,141 @@
         {
             "id": 1,
             "title": "Another"
+        },
+        {
+            "id": 2,
+            "title": "Some other project"
         }
     ],
     "todos": [
         {
-            "id": 0,
-            "title": "asdfasdf",
-            "dueDate": "2024-07-17",
-            "priority": "high",
-            "notes": "asdfasdf",
+            "id": 1,
+            "title": "Sample Todo",
+            "dueDate": "2024-07-19",
+            "priority": "low",
+            "notes": "Some description",
             "project": "1",
+            "isCompleted": false
+        },
+        {
+            "id": 2,
+            "title": "Some Todo",
+            "dueDate": "2024-07-12",
+            "priority": "high",
+            "notes": "COMPLETE THIS TODAY!",
+            "project": "1",
+            "isCompleted": false
+        },
+        {
+            "id": 3,
+            "title": "Upcoming Todo in Inbox",
+            "dueDate": "2024-07-13",
+            "priority": "medium",
+            "notes": "asdf",
+            "project": "0",
+            "isCompleted": false
+        },
+        {
+            "id": 4,
+            "title": "Next day Todo",
+            "dueDate": "2024-07-14",
+            "priority": "low",
+            "notes": "yey",
+            "project": "1",
+            "isCompleted": false
+        },
+        {
+            "id": 7,
+            "title": "New todo",
+            "dueDate": "2024-07-25",
+            "priority": "medium",
+            "notes": "Yayy, this works",
+            "project": "2",
+            "isCompleted": false
+        },
+        {
+            "id": 12,
+            "title": "This is a cool todo",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 13,
+            "title": "yayy this works!",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 14,
+            "title": "random project",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 15,
+            "title": "Some random todo",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 16,
+            "title": "another todo",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 17,
+            "title": "some todo",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 18,
+            "title": "anotehr",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 19,
+            "title": "this is gerat",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
+            "isCompleted": false
+        },
+        {
+            "id": 20,
+            "title": "well well well",
+            "dueDate": "2024-07-13",
+            "priority": "low",
+            "notes": "No description",
+            "project": 0,
             "isCompleted": false
         }
     ],
-    "nextTodoId": 1,
-    "nextProjectId": 2
+    "nextTodoId": 21,
+    "nextProjectId": 3,
+    "theme": "dark"
 }
