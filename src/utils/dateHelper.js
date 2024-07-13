@@ -5,6 +5,14 @@ class DateHelper {
 
     }
 
+    beautify(date) {
+        return format(date, "PPPP");
+    }
+
+    getDateWithoutTime(date) {
+        return date.toISOString().split('T')[0];
+    }
+
     format(date) {
         return format(date, "MM/dd/yyyy");
     }

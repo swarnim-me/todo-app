@@ -3,6 +3,7 @@ import ProjectEle from "../views/project";
 import manageProjectsModal from "../views/manageProjectsModal";
 import addTodoModal from "../views/addTodoModal";
 import sortinFilter from '../views/sortingFilter';
+import createTodoInput from "../views/createTodoInput";
 
 class Renderer {
     constructor() {

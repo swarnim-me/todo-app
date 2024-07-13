@@ -5,6 +5,7 @@ import modalHelper from "../utils/modalHelper";
 import renderer from '../controllers/renderController';
 import confirmDeleteModal from '../views/confirmModal';
 import '../css/todo.css';
+import dateHelper from "../utils/dateHelper";
 
 export default class TodoEle {
     constructor(todo) {
@@ -44,7 +45,7 @@ export default class TodoEle {
 
         const todoDueDateEle = document.createElement("div");
         todoDueDateEle.classList.add(".todo-due-date");
-        todoDueDateEle.textContent = this.todo.dueDate;
+        todoDueDateEle.textContent = dateHelper.beautify(this.todo.dueDate);
 
         const todoProjectEle = document.createElement("div");
         todoProjectEle.classList.add("todo-project");

@@ -8,6 +8,7 @@ class LoadCommonEvents {
         this.closeBtns.forEach(btn => {
             btn.addEventListener("click", this.closeDialog);
         })
+
     }
 
     closeDialog() {
