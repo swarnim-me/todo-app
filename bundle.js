@@ -1843,6 +1843,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_dashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/dashboard */ "./src/views/dashboard.js");
 /* harmony import */ var _data_sampleDB_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../data/sampleDB.json */ "./src/data/sampleDB.json");
 /* harmony import */ var _utils_loadCommonEvents__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/loadCommonEvents */ "./src/utils/loadCommonEvents.js");
+/* harmony import */ var _applicationController__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./applicationController */ "./src/controllers/applicationController.js");
 
 
 
@@ -1855,12 +1856,13 @@ __webpack_require__.r(__webpack_exports__);
 // Bind common events
 
 
+
 class PageLoader {
     constructor() {
         this.dbHelper = new _models_dbHelper__WEBPACK_IMPORTED_MODULE_0__["default"]();
         const dbData = this.dbHelper.getDbItems();
         dbData.todos.forEach(todo => {
-            new _views_todo__WEBPACK_IMPORTED_MODULE_1__["default"](todo);
+            _applicationController__WEBPACK_IMPORTED_MODULE_7__["default"].addTodo(todo);
         })
 
         dbData.projects.forEach(project => {
@@ -3044,7 +3046,7 @@ module.exports = __webpack_require__.p + "b6aa3c203f8622669cc6.ttf";
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "675d2be8e61b131d9ccc.svg";
+module.exports = __webpack_require__.p + "assets/675d2be8e61b131d9ccc.svg";
 
 /***/ }),
 
@@ -3054,7 +3056,7 @@ module.exports = __webpack_require__.p + "675d2be8e61b131d9ccc.svg";
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "069d61acf30ba34838ce.svg";
+module.exports = __webpack_require__.p + "assets/069d61acf30ba34838ce.svg";
 
 /***/ }),
 
@@ -3064,7 +3066,7 @@ module.exports = __webpack_require__.p + "069d61acf30ba34838ce.svg";
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "92a9de287878023efe02.svg";
+module.exports = __webpack_require__.p + "assets/92a9de287878023efe02.svg";
 
 /***/ }),
 
@@ -3074,7 +3076,7 @@ module.exports = __webpack_require__.p + "92a9de287878023efe02.svg";
   \***********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "84c4e3043d0bed757133.svg";
+module.exports = __webpack_require__.p + "assets/84c4e3043d0bed757133.svg";
 
 /***/ }),
 
