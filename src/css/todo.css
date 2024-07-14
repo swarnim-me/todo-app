@@ -77,7 +77,6 @@
 }
 
 
-.todo-utility-wrapper *:hover {
+.todo-utility-wrapper * {
     cursor: pointer;
-    filter: contrast(10);
 }
