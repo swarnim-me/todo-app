@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
+        clean: true
     },
     devtool: 'source-map',
     devServer: {
@@ -19,7 +20,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html",
-            inject: "head",
+            inject: "body",
             scriptLoading: "defer"
         })
     ],
@@ -35,7 +36,10 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/inline',
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[hash][ext][query]',
+                },
             },
         ],
     },

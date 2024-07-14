@@ -10,20 +10,21 @@
 <body>
     <main>
         <nav>
-            <img class="icon menu-close-btn" src="./assets/icons/hamburger.svg" alt="Menu Toggle Button">
+            <img class="icon menu-close-btn" src="<%= require('./assets/icons/hamburger.svg') %>"
+                alt="Menu Toggle Button">
             <h1 class="app-title">Taskbook</h1>
             <ul class="nav-items">
-                <li class="nav-item active" data-item-id="all"><img class="icon" src="./assets/icons/stack.svg"
-                        alt="All">All
+                <li class="nav-item active" data-item-id="all"><img class="icon"
+                        src="<%= require('./assets/icons/stack.svg') %>" alt="All">All
                 </li>
-                <li class="nav-item" data-item-id="inbox"><img class="icon" src="./assets/icons/inbox.svg"
-                        alt="Inbox">Inbox</li>
-                <li class="nav-item" data-item-id="today"><img class="icon" src="./assets/icons/sun.svg"
-                        alt="Today">Today</li>
-                <li class="nav-item" data-item-id="week"><img class="icon" src="./assets/icons/calendar.svg"
-                        alt="Week">Week</li>
+                <li class="nav-item" data-item-id="inbox"><img class="icon"
+                        src="<%= require('./assets/icons/inbox.svg') %>" alt="Inbox">Inbox</li>
+                <li class="nav-item" data-item-id="today"><img class="icon"
+                        src="<%= require('./assets/icons/sun.svg') %>" alt="Today">Today</li>
+                <li class="nav-item" data-item-id="week"><img class="icon"
+                        src="<%= require('./assets/icons/calendar.svg') %>" alt="Week">Week</li>
                 <li class="nav-item view-projects-btn" data-item-id="ignore"><img class="icon"
-                        src="./assets/icons/box.svg" alt="projects">Projects</li>
+                        src="<%= require('./assets/icons/box.svg') %>" alt="projects">Projects</li>
                 <ul>
                     <ul class="project-list">
                     </ul>
@@ -31,7 +32,8 @@
                 </ul>
             </ul>
             <div class="toggle-theme-wrapper">
-                <img class="icon toggle-theme-icon" src="./assets/icons/moon.svg" alt="Toggle theme button">
+                <img class="icon toggle-theme-icon" src="<%= require('./assets/icons/moon.svg') %>"
+                    alt="Toggle theme button">
                 <label class="switch">
                     <input type="checkbox" class="toggle-theme-input">
                     <span class="slider round"></span>
@@ -40,7 +42,8 @@
         </nav>
         <section class="dashboard">
             <div class="header">
-                <img class="icon menu-open-btn" src="./assets/icons/hamburger.svg" alt="Menu Toggle Button">
+                <img class="icon menu-open-btn" src="<%= require('./assets/icons/hamburger.svg') %>"
+                    alt="Menu Toggle Button">
                 <input type="text" class="create-todo-input" placeholder="Create a new todo (Ctrl + K)">
                 <button class="create-todo-btn">Create a new todo</button>
             </div>
@@ -59,7 +62,7 @@
         </section>
     </main>
     <dialog class="add-todo-modal">
-        <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <img src="<%= require('./assets/icons/close.svg') %>" class="close-dialog-btn" alt="Close Button">
         <h1 class="dialog-title">Add Todo</h1>
         <form class="add-todo-form">
             <div class="form-control">
@@ -103,7 +106,7 @@
         </form>
     </dialog>
     <dialog class="add-project-modal">
-        <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <img src="<%= require('./assets/icons/close.svg') %>" class="close-dialog-btn" alt="Close Button">
         <h1 class="dialog-title">Add Project</h1>
         <form class="add-project-form">
             <div class="form-control">
@@ -114,7 +117,7 @@
         </form>
     </dialog>
     <dialog class="confirm-delete-modal">
-        <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <img src="<%= require('./assets/icons/close.svg') %>" class="close-dialog-btn" alt="Close Button">
         <h1 class="dialog-title">Delete <span class="confirm-modal-title"></span></h1>
         <p>Are you sure you want to permanently delete this <span class="confirm-modal-type"></span>?</p>
         <div class="dialog-buttons">
@@ -124,7 +127,7 @@
     </dialog>
 
     <dialog class="view-projects-modal">
-        <img src="./assets/icons/close.svg" class="close-dialog-btn" alt="Close Button">
+        <img src="<%= require('./assets/icons/close.svg') %>" class="close-dialog-btn" alt="Close Button">
         <h1 class="dialog-title">Projects</h1>
         <ul class="manage-projects-list">
         </ul>
