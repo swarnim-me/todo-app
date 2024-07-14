@@ -2567,7 +2567,7 @@ class CreateTodoInput {
     }
 
     bindEvents() {
-        this.createTodoInput.addEventListener("keydown", this.addTodo);
+        this.createTodoInput.addEventListener("keydown", this.getTodoInput);
         window.addEventListener("keydown", this.focusTodoInput);
     }
 
@@ -2577,18 +2577,22 @@ class CreateTodoInput {
         }
     }
 
-    addTodo = (event) => {
+    getTodoInput = (event) => {
         if (this.createTodoInput.value.length > 0 && event.key === "Enter") {
-            const newTodo = {
-                title: this.createTodoInput.value,
-                dueDate: _utils_dateHelper__WEBPACK_IMPORTED_MODULE_1__["default"].getDateWithoutTime(new Date()),
-                priority: "low",
-                notes: "No description",
-                project: 0,
-            }
-            _controllers_applicationController__WEBPACK_IMPORTED_MODULE_0__["default"].addTodo(newTodo);
-            this.createTodoInput.value = "";
+            this.addTodo();
         }
+    }
+
+    addTodo = () => {
+        const newTodo = {
+            title: this.createTodoInput.value,
+            dueDate: _utils_dateHelper__WEBPACK_IMPORTED_MODULE_1__["default"].getDateWithoutTime(new Date()),
+            priority: "low",
+            notes: "No description",
+            project: 0,
+        }
+        _controllers_applicationController__WEBPACK_IMPORTED_MODULE_0__["default"].addTodo(newTodo);
+        this.createTodoInput.value = "";
     }
 
 
@@ -2610,12 +2614,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _css_dashboard_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/dashboard.css */ "./src/css/dashboard.css");
 /* harmony import */ var _utils_modalHelper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/modalHelper */ "./src/utils/modalHelper.js");
+/* harmony import */ var _createTodoInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createTodoInput */ "./src/views/createTodoInput.js");
+
 
 
 
 class Dashboard {
     constructor() {
         this.createTodoBtn = document.querySelector(".create-todo-btn");
+        this.createTodoInput = document.querySelector(".create-todo-input");
         this.addTodoDialog = document.querySelector(".add-todo-modal");
         this.bindEvents();
     }
@@ -2625,7 +2632,12 @@ class Dashboard {
     }
 
     showAddTodoDialog = () => {
-        _utils_modalHelper__WEBPACK_IMPORTED_MODULE_1__["default"].showAddTodoModal();
+        if (this.createTodoInput.value.length != 0) {
+            _createTodoInput__WEBPACK_IMPORTED_MODULE_2__["default"].addTodo();
+        }
+        else {
+            _utils_modalHelper__WEBPACK_IMPORTED_MODULE_1__["default"].showAddTodoModal();
+        }
     }
 }
 
