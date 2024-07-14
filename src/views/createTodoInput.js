@@ -8,7 +8,7 @@ class CreateTodoInput {
     }
 
     bindEvents() {
-        this.createTodoInput.addEventListener("keydown", this.addTodo);
+        this.createTodoInput.addEventListener("keydown", this.getTodoInput);
         window.addEventListener("keydown", this.focusTodoInput);
     }
 
@@ -18,18 +18,22 @@ class CreateTodoInput {
         }
     }
 
-    addTodo = (event) => {
+    getTodoInput = (event) => {
         if (this.createTodoInput.value.length > 0 && event.key === "Enter") {
-            const newTodo = {
-                title: this.createTodoInput.value,
-                dueDate: dateHelper.getDateWithoutTime(new Date()),
-                priority: "low",
-                notes: "No description",
-                project: 0,
-            }
-            applicationController.addTodo(newTodo);
-            this.createTodoInput.value = "";
+            this.addTodo();
         }
+    }
+
+    addTodo = () => {
+        const newTodo = {
+            title: this.createTodoInput.value,
+            dueDate: dateHelper.getDateWithoutTime(new Date()),
+            priority: "low",
+            notes: "No description",
+            project: 0,
+        }
+        applicationController.addTodo(newTodo);
+        this.createTodoInput.value = "";
     }
 
 
