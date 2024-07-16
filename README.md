@@ -8,7 +8,6 @@
     * Title
     * Due Date
     * Project
-    * Checklist
     * Priority
     * Additional Notes
 * All the todos should be initially added to the Inbox.
