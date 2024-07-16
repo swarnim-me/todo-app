@@ -65,7 +65,6 @@ class DatabaseController {
                 return Number(todo.project) === Number(tab);
             })
         }
-        return output;
     }
 
     getSortedTodos(sortBy, todos) {

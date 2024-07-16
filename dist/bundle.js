@@ -5646,7 +5646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   buildLocalizeFn: () => (/* binding */ buildLocalizeFn)
 /* harmony export */ });
-/* eslint-disable no-unused-vars */
+ 
 
 /**
  * The localize function argument callback which allows to convert raw value to
