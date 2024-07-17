@@ -1,52 +1,51 @@
 .form-control {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 20px;
 }
 
 .radio-form-control {
-    display: flex;
-    gap: 30px;
+	display: flex;
+	gap: 30px;
 }
 
 .radio-form-control h4 {
-    margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 
 .radio-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
 }
 
 label {
-    font-family: "Roboto-Light";
+	font-family: "Roboto-Light";
 }
 
 .add-todo-modal input[type="radio"] {
-    appearance: none;
-    background: var(--nav-clr);
-    border-radius: 100%;
+	appearance: none;
+	background: var(--nav-clr);
+	border-radius: 100%;
 }
 
 .add-todo-input#project-input {
-    appearance: none;
+	appearance: none;
 }
 
 #low-priority-input:checked {
-    background-color: var(--low-priority);
+	background-color: var(--low-priority);
 }
 
 #medium-priority-input:checked {
-    background-color: var(--medium-priority);
+	background-color: var(--medium-priority);
 }
 
 #high-priority-input:checked {
-    background-color: var(--high-priority);
+	background-color: var(--high-priority);
 }
 
-
 #notes-input {
-    resize: none;
+	resize: none;
 }

@@ -1,20 +1,20 @@
-import addTodoModal from '../views/addTodoModal';
+import addTodoModal from "../views/addTodoModal";
 import "../views/addProjectModal";
 import "../views/confirmModal";
 
 class ModalHelper {
-    constructor() {
-        this.modal = addTodoModal;
-    }
+	constructor() {
+		this.modal = addTodoModal;
+	}
 
-    showAddTodoModal() {
-        addTodoModal.showModal();
-    }
+	showAddTodoModal() {
+		addTodoModal.showModal();
+	}
 
-    showEditTodoModal(todo) {
-        addTodoModal.setupEditModal(todo);
-        addTodoModal.showModal();
-    }
+	showEditTodoModal(todo) {
+		addTodoModal.setupEditModal(todo);
+		addTodoModal.showModal();
+	}
 }
 
 export default new ModalHelper();

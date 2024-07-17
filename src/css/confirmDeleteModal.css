@@ -1,22 +1,22 @@
 .confirm-delete-modal p {
-    font-family: 'Roboto-Light';
-    margin-bottom: 20px;
+	font-family: "Roboto-Light";
+	margin-bottom: 20px;
 }
 
 .dialog-buttons {
-    display: flex;
-    gap: 20px;
+	display: flex;
+	gap: 20px;
 }
 
 .dialog-buttons * {
-    flex: 1;
+	flex: 1;
 }
 
 .confirm-delete-modal .confirm-delete-btn {
-    background: var(--high-priority);
+	background: var(--high-priority);
 }
 
 .confirm-modal-title {
-    font-style: italic;
-    font-family: 'Roboto-Light';
+	font-style: italic;
+	font-family: "Roboto-Light";
 }

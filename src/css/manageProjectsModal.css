@@ -1,19 +1,19 @@
 .manage-projects-list-item {
-    display: flex;
-    justify-content: space-between;
-    padding-block: 20px;
-    border-bottom: 2px solid var(--nav-clr);
+	display: flex;
+	justify-content: space-between;
+	padding-block: 20px;
+	border-bottom: 2px solid var(--nav-clr);
 }
 
 .manage-projects-list-item:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .manage-project-utility-btns {
-    display: flex;
-    gap: 20px;
+	display: flex;
+	gap: 20px;
 }
 
 .manage-project-utility-btns * {
-    cursor: pointer;
+	cursor: pointer;
 }

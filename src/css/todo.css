@@ -1,82 +1,81 @@
 .todos-wrapper {
-    display: block;
-    margin-top: 24px;
-    width: 100%;
+	display: block;
+	margin-top: 24px;
+	width: 100%;
 }
 
 .todo {
-    border-bottom: 2px solid rgba(78, 78, 78, 0.196);
-    padding-block: 20px;
+	border-bottom: 2px solid rgba(78, 78, 78, 0.196);
+	padding-block: 20px;
 }
 
 .todo-info {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .todo-description {
-    padding-top: 20px;
-    padding-left: 40px;
-    height: fit-content;
-    transition: .4s;
-    opacity: .8;
+	padding-top: 20px;
+	padding-left: 40px;
+	height: fit-content;
+	transition: 0.4s;
+	opacity: 0.8;
 }
 
 .hide-description {
-    padding-top: 0px;
-    height: 0px;
-    overflow: hidden;
+	padding-top: 0px;
+	height: 0px;
+	overflow: hidden;
 }
 
 .todo-header,
 .todo-footer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
 }
 
 .todo-footer {
-    font-family: 'Roboto-Light';
+	font-family: "Roboto-Light";
 }
 
 .todo-project {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .todo-checkbox {
-    appearance: none;
-    background: var(--nav-clr);
-    height: 20px;
-    width: 20px;
-    border-radius: 2px;
+	appearance: none;
+	background: var(--nav-clr);
+	height: 20px;
+	width: 20px;
+	border-radius: 2px;
 }
 
 .todo-checkbox:checked {
-    background-image: url("../assets/icons/tick.svg");
+	background-image: url("../assets/icons/tick.svg");
 }
 
 .todo-priority {
-    /* TODO: Remove this */
-    background: red;
-    height: 12px;
-    width: 12px;
-    border-radius: 100%;
+	/* TODO: Remove this */
+	background: red;
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
 }
 
 .todo-utility-wrapper {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    width: 0;
-    overflow: hidden;
-    transition: .4s;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	width: 0;
+	overflow: hidden;
+	transition: 0.4s;
 }
 
 .todo:hover .todo-utility-wrapper {
-    width: 80px;
+	width: 80px;
 }
 
-
 .todo-utility-wrapper * {
-    cursor: pointer;
+	cursor: pointer;
 }
