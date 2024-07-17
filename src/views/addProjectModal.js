@@ -1,5 +1,4 @@
 import applicationController from "../controllers/applicationController";
-import "../css/addProjectModal.css";
 
 class AddProjectModal {
 	constructor() {

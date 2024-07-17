@@ -39,7 +39,7 @@ module.exports = {
 				type: "asset/resource",
 				generator: {
 					filename: "assets/[hash][ext][query]",
-				},
+				}, // To use the image file in html files
 			},
 		],
 	},

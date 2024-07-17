@@ -8,7 +8,7 @@ export default [
 		},
 	},
 	{
-		ignores: ["dist/"],
+		ignores: ["dist/", "webpack.config.js"],
 	},
 	pluginJs.configs.recommended,
 ];
