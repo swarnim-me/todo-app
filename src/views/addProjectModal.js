@@ -30,7 +30,7 @@ class AddProjectModal {
 				title: this.projectTitleInputEle.value,
 			};
 			applicationController.addProject(newProject);
-			// this.clearInputs();
+			this.clearInputs();
 			this.addProjectModal.close();
 		}
 		delete this.project;
@@ -38,6 +38,10 @@ class AddProjectModal {
 
 	showModal() {
 		this.addProjectModal.showModal();
+	}
+
+	clearInputs() {
+		this.addProjectForm.reset();
 	}
 }
 

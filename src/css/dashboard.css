@@ -59,6 +59,10 @@
 	background-size: 1.5rem auto;
 }
 
+.sort option {
+	background-color: var(--nav-clr);
+}
+
 .menu-open-btn {
 	width: 32px;
 	cursor: pointer;
