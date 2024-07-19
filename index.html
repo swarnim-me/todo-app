@@ -1,137 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Taskbook</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskbook</title>
-</head>
+	<body>
+		<main>
+			<nav>
+				<img
+					class="icon menu-close-btn"
+					src="assets/bec92142230729b95d2a.svg"
+					alt="Menu Toggle Button"
+				/>
+				<h1 class="app-title">Taskbook</h1>
+				<ul class="nav-items">
+					<li class="nav-item active" data-item-id="all">
+						<img
+							class="icon"
+							src="assets/2d07c69c76a055e03518.svg"
+							alt="All"
+						/>All
+					</li>
+					<li class="nav-item" data-item-id="inbox">
+						<img
+							class="icon"
+							src="assets/8534a3bd248ed183e825.svg"
+							alt="Inbox"
+						/>Inbox
+					</li>
+					<li class="nav-item" data-item-id="today">
+						<img
+							class="icon"
+							src="assets/3d1923d1c6672e3a4e7e.svg"
+							alt="Today"
+						/>Today
+					</li>
+					<li class="nav-item" data-item-id="week">
+						<img
+							class="icon"
+							src="assets/900a561ee2d8e935ee84.svg"
+							alt="Week"
+						/>Week
+					</li>
+					<li
+						class="nav-item view-projects-btn"
+						data-item-id="ignore"
+					>
+						<img
+							class="icon"
+							src="assets/1d3d90d9a66b58ec7695.svg"
+							alt="projects"
+						/>Projects
+					</li>
+					<ul>
+						<ul class="project-list"></ul>
+						<li class="project-list-item create-project-btn">
+							Create New Project
+						</li>
+					</ul>
+				</ul>
+				<div class="toggle-theme-wrapper">
+					<img
+						class="icon toggle-theme-icon"
+						src="assets/f0296dd9ef3907fc544a.svg"
+						alt="Toggle theme button"
+					/>
+					<label class="switch">
+						<input type="checkbox" class="toggle-theme-input" />
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</nav>
+			<section class="dashboard">
+				<div class="header">
+					<img
+						class="icon menu-open-btn"
+						src="assets/bec92142230729b95d2a.svg"
+						alt="Menu Toggle Button"
+					/>
+					<input
+						type="text"
+						class="create-todo-input"
+						placeholder="Create a new todo (Ctrl + K)"
+					/>
+					<button class="create-todo-btn">Create a new todo</button>
+				</div>
+				<small class="tip"
+					>Tip: You can add additional details to your todo items even
+					if you don't enter any text above.</small
+				>
+				<select name="sort" id="sort" class="sort">
+					<option value="none">Sort Items</option>
+					<option value="date">Date</option>
+					<option value="priority">Priority</option>
+					<option value="project">Project</option>
+				</select>
 
-<body>
-    <main>
-        <nav>
-            <img class="icon menu-close-btn" src="assets/bec92142230729b95d2a.svg"
-                alt="Menu Toggle Button">
-            <h1 class="app-title">Taskbook</h1>
-            <ul class="nav-items">
-                <li class="nav-item active" data-item-id="all"><img class="icon"
-                        src="assets/2d07c69c76a055e03518.svg" alt="All">All
-                </li>
-                <li class="nav-item" data-item-id="inbox"><img class="icon"
-                        src="assets/8534a3bd248ed183e825.svg" alt="Inbox">Inbox</li>
-                <li class="nav-item" data-item-id="today"><img class="icon"
-                        src="assets/3d1923d1c6672e3a4e7e.svg" alt="Today">Today</li>
-                <li class="nav-item" data-item-id="week"><img class="icon"
-                        src="assets/900a561ee2d8e935ee84.svg" alt="Week">Week</li>
-                <li class="nav-item view-projects-btn" data-item-id="ignore"><img class="icon"
-                        src="assets/1d3d90d9a66b58ec7695.svg" alt="projects">Projects</li>
-                <ul>
-                    <ul class="project-list">
-                    </ul>
-                    <li class="project-list-item create-project-btn">Create New Project</li>
-                </ul>
-            </ul>
-            <div class="toggle-theme-wrapper">
-                <img class="icon toggle-theme-icon" src="assets/f0296dd9ef3907fc544a.svg"
-                    alt="Toggle theme button">
-                <label class="switch">
-                    <input type="checkbox" class="toggle-theme-input">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </nav>
-        <section class="dashboard">
-            <div class="header">
-                <img class="icon menu-open-btn" src="assets/bec92142230729b95d2a.svg"
-                    alt="Menu Toggle Button">
-                <input type="text" class="create-todo-input" placeholder="Create a new todo (Ctrl + K)">
-                <button class="create-todo-btn">Create a new todo</button>
-            </div>
-            <small class="tip">Tip: You can add additional details to your todo items even if you don't enter any text
-                above.</small>
-            <select name="sort" id="sort" class="sort">
-                <option value="none">Sort Items</option>
-                <option value="date">Date</option>
-                <option value="priority">Priority</option>
-                <option value="project">Project</option>
-            </select>
+				<div class="todos-wrapper">
+					<h1 class="quote">
+						"The journey of a thousand miles begins with one
+						step."<br />- Lao Tzu
+					</h1>
+				</div>
+			</section>
+		</main>
+		<dialog class="add-todo-modal">
+			<img
+				src="assets/ba083f94d5e40a924c3d.svg"
+				class="close-dialog-btn"
+				alt="Close Button"
+			/>
+			<h1 class="dialog-title">Add Todo</h1>
+			<form class="add-todo-form">
+				<div class="form-control">
+					<label for="title-input">Title</label>
+					<input
+						type="text"
+						id="title-input"
+						class="dialog-input"
+						required
+					/>
+				</div>
+				<div class="form-control">
+					<label for="date-input">Due Date</label>
+					<input
+						type="date"
+						id="date-input"
+						class="dialog-input"
+						required
+					/>
+				</div>
+				<div class="form-control">
+					<label for="project-input">Project</label>
+					<select
+						name="project-input"
+						id="project-input"
+						class="dialog-input"
+						required
+					></select>
+				</div>
+				<div class="form-control">
+					<label>Priority</label>
+					<div class="radio-form-control">
+						<div class="radio-wrapper">
+							<input
+								name="priority-input"
+								type="radio"
+								id="low-priority-input"
+								class="dialog-input"
+								value="low"
+								required
+							/>
+							<label for="low-priority-input">Low</label>
+						</div>
+						<div class="radio-wrapper">
+							<input
+								name="priority-input"
+								type="radio"
+								id="medium-priority-input"
+								class="dialog-input"
+								value="medium"
+								required
+							/>
+							<label for="medium-priority-input">Medium</label>
+						</div>
+						<div class="radio-wrapper">
+							<input
+								name="priority-input"
+								type="radio"
+								id="high-priority-input"
+								class="dialog-input"
+								value="high"
+								required
+							/>
+							<label for="high-priority-input">High</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-control">
+					<label for="notes-input">Notes</label>
+					<textarea
+						id="notes-input"
+						class="dialog-input"
+						rows="6"
+						required
+					></textarea>
+				</div>
+				<button class="dialog-btn submit-todo-btn">Submit</button>
+			</form>
+		</dialog>
+		<dialog class="add-project-modal">
+			<img
+				src="assets/ba083f94d5e40a924c3d.svg"
+				class="close-dialog-btn"
+				alt="Close Button"
+			/>
+			<h1 class="dialog-title">Add Project</h1>
+			<form class="add-project-form">
+				<div class="form-control">
+					<label for="add-project-input">Project Name</label>
+					<input
+						type="text"
+						id="add-project-input"
+						class="dialog-input"
+						required
+					/>
+				</div>
+				<button class="dialog-btn submit-project-btn">Create</button>
+			</form>
+		</dialog>
+		<dialog class="confirm-delete-modal">
+			<img
+				src="assets/ba083f94d5e40a924c3d.svg"
+				class="close-dialog-btn"
+				alt="Close Button"
+			/>
+			<h1 class="dialog-title">
+				Delete <span class="confirm-modal-title"></span>
+			</h1>
+			<p>
+				Are you sure you want to permanently delete this
+				<span class="confirm-modal-type"></span>?
+			</p>
+			<div class="dialog-buttons">
+				<button class="confirm-cancel-btn dialog-btn">Cancel</button>
+				<button class="confirm-delete-btn dialog-btn">
+					Yes, Delete
+				</button>
+			</div>
+		</dialog>
 
-            <div class="todos-wrapper">
-                <h1 class="quote">"The journey of a thousand miles begins with one step."<br>- Lao Tzu</h1>
-            </div>
-        </section>
-    </main>
-    <dialog class="add-todo-modal">
-        <img src="assets/ba083f94d5e40a924c3d.svg" class="close-dialog-btn" alt="Close Button">
-        <h1 class="dialog-title">Add Todo</h1>
-        <form class="add-todo-form">
-            <div class="form-control">
-                <label for="title-input">Title</label>
-                <input type="text" id="title-input" class="dialog-input" required>
-            </div>
-            <div class="form-control">
-                <label for="date-input">Due Date</label>
-                <input type="date" id="date-input" class="dialog-input" required>
-            </div>
-            <div class="form-control">
-                <label for="project-input">Project</label>
-                <select name="project-input" id="project-input" class="dialog-input" required>
-                </select>
-            </div>
-            <div class="form-control">
-                <label>Priority</label>
-                <div class="radio-form-control">
-                    <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="low-priority-input" class="dialog-input"
-                            value="low" required>
-                        <label for="low-priority-input">Low</label>
-                    </div>
-                    <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="medium-priority-input" class="dialog-input"
-                            value="medium" required>
-                        <label for="medium-priority-input">Medium</label>
-                    </div>
-                    <div class="radio-wrapper">
-                        <input name="priority-input" type="radio" id="high-priority-input" class="dialog-input"
-                            value="high" required>
-                        <label for="high-priority-input">High</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="notes-input">Notes</label>
-                <textarea id="notes-input" class="dialog-input" rows="6" required></textarea>
-            </div>
-            <button class="dialog-btn submit-todo-btn">Submit</button>
-        </form>
-    </dialog>
-    <dialog class="add-project-modal">
-        <img src="assets/ba083f94d5e40a924c3d.svg" class="close-dialog-btn" alt="Close Button">
-        <h1 class="dialog-title">Add Project</h1>
-        <form class="add-project-form">
-            <div class="form-control">
-                <label for="add-project-input">Project Name</label>
-                <input type="text" id="add-project-input" class="dialog-input" required>
-            </div>
-            <button class="dialog-btn submit-project-btn">Create</button>
-        </form>
-    </dialog>
-    <dialog class="confirm-delete-modal">
-        <img src="assets/ba083f94d5e40a924c3d.svg" class="close-dialog-btn" alt="Close Button">
-        <h1 class="dialog-title">Delete <span class="confirm-modal-title"></span></h1>
-        <p>Are you sure you want to permanently delete this <span class="confirm-modal-type"></span>?</p>
-        <div class="dialog-buttons">
-            <button class="confirm-cancel-btn dialog-btn">Cancel</button>
-            <button class="confirm-delete-btn dialog-btn">Yes, Delete</button>
-        </div>
-    </dialog>
-
-    <dialog class="view-projects-modal">
-        <img src="assets/ba083f94d5e40a924c3d.svg" class="close-dialog-btn" alt="Close Button">
-        <h1 class="dialog-title">Projects</h1>
-        <ul class="manage-projects-list">
-        </ul>
-    </dialog>
-<script defer src="bundle.js"></script></body>
-
+		<dialog class="view-projects-modal">
+			<img
+				src="assets/ba083f94d5e40a924c3d.svg"
+				class="close-dialog-btn"
+				alt="Close Button"
+			/>
+			<h1 class="dialog-title">Projects</h1>
+			<ul class="manage-projects-list"></ul>
+		</dialog>
+	<script defer src="bundle.js"></script></body>
 </html>
